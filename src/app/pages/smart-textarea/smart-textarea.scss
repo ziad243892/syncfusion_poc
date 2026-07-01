@@ -1,0 +1,39 @@
+.smart-textarea-page__demo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.smart-textarea-page__hint,
+.smart-textarea-page__tip {
+  margin: 0;
+  color: var(--app-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.smart-textarea-page__label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.smart-textarea-page__editor {
+  display: block;
+  width: 100%;
+}
+
+// Syncfusion sets a default inline width on the wrapper and textarea.
+:host ::ng-deep .smart-textarea-page__editor {
+  ejs-smarttextarea,
+  .e-smart-textarea,
+  .e-input-group.e-control-wrapper,
+  textarea.e-input {
+    display: block;
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}

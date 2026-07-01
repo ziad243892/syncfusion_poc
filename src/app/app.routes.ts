@@ -3,6 +3,7 @@ import { Home } from './home/home';
 import { Layout } from './layout/layout';
 import { Employees } from './pages/employees/employees';
 import { FormsPage } from './pages/forms/forms';
+import { SmartTextareaPage } from './pages/smart-textarea/smart-textarea';
 
 export const routes: Routes = [
   {
@@ -13,6 +14,7 @@ export const routes: Routes = [
       { path: 'dashboard', component: Home },
       { path: 'employees', component: Employees },
       { path: 'forms', component: FormsPage },
+      { path: 'smart-textarea', component: SmartTextareaPage },
     ],
   },
   { path: '**', redirectTo: 'dashboard' },

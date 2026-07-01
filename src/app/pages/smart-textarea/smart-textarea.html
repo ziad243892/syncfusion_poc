@@ -1,0 +1,44 @@
+<section class="page smart-textarea-page">
+  <header class="page__header">
+    <h2 class="page__title">{{ 'smartTextarea.title' | translate }}</h2>
+    <p class="page__subtitle">{{ 'smartTextarea.subtitle' | translate }}</p>
+  </header>
+
+  <section class="panel smart-textarea-page__demo">
+    <p class="smart-textarea-page__hint">{{ 'smartTextarea.hint' | translate }}</p>
+
+    <label class="smart-textarea-page__label">
+      <span>{{ 'smartTextarea.selectRole' | translate }}</span>
+      <ejs-dropdownlist
+        id="smart-textarea-role"
+        [dataSource]="rolesData"
+        [value]="selectedRole"
+        [width]="dropdownWidth"
+        [placeholder]="'smartTextarea.rolePlaceholder' | translate"
+        popupHeight="220px"
+        cssClass="e-outline"
+        [enableRtl]="isRtl()"
+        (change)="onRoleChange($event)"
+      ></ejs-dropdownlist>
+    </label>
+
+    <div class="smart-textarea-page__editor">
+      <ejs-smarttextarea
+        #textareaObj
+        id="smart-textarea"
+        [width]="dropdownWidth"
+        [userRole]="selectedRole"
+        [UserPhrases]="userPhrases"
+        [aiSuggestionHandler]="serverAIRequest"
+        [placeholder]="'smartTextarea.placeholder' | translate"
+        floatLabelType="Auto"
+        resizeMode="Both"
+        [rows]="5"
+        cssClass="e-outline"
+        [enableRtl]="isRtl()"
+      ></ejs-smarttextarea>
+    </div>
+
+    <p class="smart-textarea-page__tip">{{ 'smartTextarea.tip' | translate }}</p>
+  </section>
+</section>

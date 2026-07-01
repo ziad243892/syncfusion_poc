@@ -7,6 +7,7 @@
     "dashboard": "Dashboard",
     "employees": "Employees",
     "forms": "Forms",
+    "smartTextarea": "Smart TextArea",
     "home": "Home"
   },
   "header": {
@@ -59,6 +60,15 @@
       "leave": "On Leave",
       "remote": "Remote"
     }
+  },
+  "smartTextarea": {
+    "title": "Smart TextArea",
+    "subtitle": "AI-powered sentence autocomplete with role-based suggestions.",
+    "hint": "This demo uses a local mock AI handler. Connect Azure OpenAI or Gemini via aiSuggestionHandler for production use.",
+    "selectRole": "Select a role",
+    "rolePlaceholder": "Select a role",
+    "placeholder": "Enter your queries here",
+    "tip": "Type \"To investigate\" with the GitHub maintainer role selected, then press Tab to accept the inline suggestion."
   },
   "forms": {
     "title": "Form Components",
