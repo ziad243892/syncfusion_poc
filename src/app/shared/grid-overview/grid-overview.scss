@@ -1,0 +1,322 @@
+.grid-overview__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block-end: 0.75rem;
+}
+
+.grid-overview__toolbar-start {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.grid-overview__search {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex: 1 1 14rem;
+  max-width: 20rem;
+}
+
+.grid-overview__search-icon {
+  font-size: 1.25rem;
+  color: var(--app-text-muted);
+  flex-shrink: 0;
+}
+
+.grid-overview__search ejs-textbox {
+  flex: 1;
+}
+
+.grid-overview__grid-shell {
+  position: relative;
+  min-height: 400px;
+}
+
+// Clickable sortable headers with visible Material Icons sort indicators.
+:host ::ng-deep .grid-overview__grid {
+  .e-headercelldiv {
+    cursor: pointer;
+  }
+
+  .e-headercell .e-sortfilterdiv {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+  }
+
+  .e-headercell .e-icon-ascending,
+  .e-headercell .e-icon-descending {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.grid-overview__skeleton--blocking {
+  z-index: 3;
+}
+
+.grid-overview__skeleton {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0.75rem;
+  border: 1px solid var(--app-border);
+  border-radius: var(--app-radius, 0.5rem);
+  background: var(--app-surface, #fff);
+  overflow: hidden;
+}
+
+.grid-overview__skeleton-header,
+.grid-overview__skeleton-row {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.grid-overview__skeleton-header {
+  padding-block-end: 0.35rem;
+  border-block-end: 1px solid var(--app-border);
+}
+
+.grid-overview__skeleton-row {
+  min-height: 38px;
+}
+
+.grid-overview__skeleton-block {
+  display: block;
+  height: 0.75rem;
+  border-radius: 0.25rem;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--app-border) 70%, transparent) 25%,
+    color-mix(in srgb, var(--app-border) 35%, transparent) 50%,
+    color-mix(in srgb, var(--app-border) 70%, transparent) 75%
+  );
+  background-size: 200% 100%;
+  animation: grid-overview-shimmer 1.2s ease-in-out infinite;
+}
+
+.grid-overview__skeleton-block--header {
+  height: 0.85rem;
+  width: 70%;
+}
+
+@keyframes grid-overview-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+:host ::ng-deep .grid-overview__grid {
+  .e-mask.e-skeleton,
+  .e-masked-cell .e-mask.e-skeleton {
+    opacity: 1;
+    background-color: color-mix(in srgb, var(--app-border) 55%, transparent);
+    animation: grid-overview-shimmer 1.1s ease-in-out infinite;
+  }
+
+  .e-masked-row .e-rowcell {
+    padding-block: 0.35rem;
+  }
+
+  &.grid-overview__grid--scroll-loading .e-content {
+    scroll-behavior: auto;
+  }
+}
+
+.grid-overview__load-time {
+  font-size: 0.875rem;
+  color: var(--app-text-muted);
+  white-space: nowrap;
+}
+
+.grid-overview__employee {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.grid-overview__employee-name {
+  line-height: 1;
+}
+
+.grid-overview__avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  font-size: 16px;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.grid-overview__avatar--male {
+  background-color: var(--color-sf-primary, #6750a4);
+}
+
+.grid-overview__avatar--female {
+  background-color: #db2777;
+}
+
+.grid-overview__cell-icon {
+  font-size: 16px;
+  color: var(--color-sf-primary, #6750a4);
+  flex-shrink: 0;
+}
+
+.grid-overview__location {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.grid-overview__trust {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.grid-overview__trust-icon {
+  font-size: 18px;
+}
+
+.grid-overview__trust-icon--perfect {
+  color: #16a34a;
+}
+
+.grid-overview__trust-icon--sufficient {
+  color: #ca8a04;
+}
+
+.grid-overview__trust-icon--insufficient {
+  color: #dc2626;
+}
+
+.grid-overview__trust-text {
+  margin-inline-start: 0.1rem;
+}
+
+.grid-overview__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.05rem;
+}
+
+.grid-overview__star {
+  font-size: 14px;
+  color: #d1d5db;
+}
+
+.grid-overview__star--filled {
+  color: #f59e0b;
+}
+
+.grid-overview__software {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.grid-overview__status-icon {
+  font-size: 13px;
+  margin-inline-end: 0.15rem;
+  vertical-align: middle;
+}
+
+.statustemp.e-activecolor .grid-overview__status-icon {
+  color: #0c0;
+}
+
+.statustemp.e-inactivecolor .grid-overview__status-icon {
+  color: #e60000;
+}
+
+.statustemp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  position: relative;
+  height: 19px;
+  border-radius: 5px;
+  text-align: center;
+  padding-inline: 0.25rem;
+}
+
+.statustemp.e-activecolor {
+  background-color: #ccffcc;
+  min-width: 57px;
+}
+
+.statustemp.e-inactivecolor {
+  background-color: #ffd7cc;
+  min-width: 64px;
+}
+
+.statustxt.e-activecolor {
+  color: #0c0;
+  position: relative;
+  top: 0;
+}
+
+.statustxt.e-inactivecolor {
+  color: #e60000;
+  position: relative;
+  top: 0;
+}
+
+.pbar {
+  position: relative;
+  height: 18px;
+  width: 10em;
+  text-align: start;
+  background-color: #fff;
+}
+
+.bar {
+  position: absolute;
+  height: 100%;
+  background-color: #00b300;
+}
+
+.bar.progressdisable {
+  background-color: #df2222;
+}
+
+.barlabel {
+  position: relative;
+  left: 10px;
+  line-height: 18px;
+  font-size: 11px;
+  color: #fff;
+}
+
+@media (max-width: 370px) {
+  .grid-overview__toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .grid-overview__toolbar-start {
+    width: 100%;
+  }
+
+  .grid-overview__search {
+    max-width: none;
+  }
+}

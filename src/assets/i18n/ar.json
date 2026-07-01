@@ -1,0 +1,136 @@
+{
+  "app": {
+    "title": "البوابة المؤسسية",
+    "subtitle": "نموذج Syncfusion Material 3"
+  },
+  "nav": {
+    "dashboard": "لوحة التحكم",
+    "employees": "الموظفون",
+    "forms": "النماذج",
+    "home": "الرئيسية"
+  },
+  "header": {
+    "toggleSidebar": "إظهار/إخفاء القائمة",
+    "toggleTheme": "تبديل الوضع الداكن",
+    "toggleLanguage": "تبديل اللغة (الإنجليزية / العربية)",
+    "toggleGrayMode": "تبديل الوضع الرمادي",
+    "zoomIn": "تكبير (الحالي {{level}}%)",
+    "zoomOut": "تصغير (الحالي {{level}}%)",
+    "resetAccessibility": "إعادة تعيين إعدادات إمكانية الوصول",
+    "accessibilityToolbar": "عناصر التحكم في إمكانية الوصول",
+    "language": "اللغة",
+    "direction": "اتجاه النص"
+  },
+  "footer": {
+    "copyright": "© {{year}} البوابة المؤسسية. جميع الحقوق محفوظة.",
+    "version": "الإصدار {{version}}",
+    "builtWith": "مبني باستخدام Syncfusion و Angular"
+  },
+  "home": {
+    "welcome": "مرحباً بعودتك",
+    "description": "واجهة تشبه الأنظمة الفعلية مع دعم السمات واللغات والتجاوب.",
+    "stats": {
+      "employees": "إجمالي الموظفين",
+      "departments": "الأقسام",
+      "active": "النشطون اليوم",
+      "pending": "الطلبات المعلقة"
+    },
+    "recentActivity": "النشاط الأخير",
+    "quickActions": "إجراءات سريعة",
+    "viewAll": "عرض جميع الموظفين",
+    "openForms": "فتح نموذج العرض",
+    "gridOverview": "نظرة عامة على الجدول",
+    "gridOverviewDescription": "عرض توضيحي لجدول Syncfusion مع التمرير الافتراضي والتصفية والفرز وقوالب الأعمدة."
+  },
+  "employees": {
+    "title": "دليل الموظفين",
+    "subtitle": "ابحث ورتّب وأدر سجلات الفريق.",
+    "search": "ابحث عن موظف...",
+    "columns": {
+      "id": "المعرف",
+      "name": "الاسم",
+      "department": "القسم",
+      "role": "الدور",
+      "status": "الحالة",
+      "email": "البريد الإلكتروني"
+    },
+    "status": {
+      "active": "نشط",
+      "leave": "في إجازة",
+      "remote": "عن بُعد"
+    }
+  },
+  "forms": {
+    "title": "مكوّنات النماذج",
+    "subtitle": "حقول الإدخال والقوائم والأزرار متوافقة مع نظام التصميم.",
+    "sections": {
+      "personal": "المعلومات الشخصية",
+      "work": "تفاصيل العمل",
+      "preferences": "التفضيلات"
+    },
+    "fields": {
+      "fullName": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "phone": "رقم الهاتف",
+      "department": "القسم",
+      "role": "المسمى الوظيفي",
+      "startDate": "تاريخ البدء",
+      "remote": "تفعيل العمل عن بُعد",
+      "notifications": "إشعارات البريد"
+    },
+    "placeholders": {
+      "fullName": "أدخل الاسم الكامل",
+      "email": "name@company.com",
+      "phone": "+966 5XX XXX XXX"
+    },
+    "actions": {
+      "save": "حفظ",
+      "reset": "إعادة تعيين",
+      "cancel": "إلغاء"
+    },
+    "messages": {
+      "saved": "تم حفظ النموذج بنجاح.",
+      "reset": "تمت إعادة تعيين النموذج."
+    }
+  },
+  "common": {
+    "light": "فاتح",
+    "dark": "داكن",
+    "english": "الإنجليزية",
+    "arabic": "العربية",
+    "ltr": "يسار لليمين",
+    "rtl": "يمين لليسار"
+  },
+  "gridOverview": {
+    "search": "ابحث في الموظفين...",
+    "selectDataRange": "اختر نطاق البيانات",
+    "loadTime": "وقت التحميل",
+    "dataRange": {
+      "1000": "1,000 صف و 11 عمود",
+      "10000": "10,000 صف و 11 عمود",
+      "100000": "100,000 صف و 11 عمود"
+    },
+    "columns": {
+      "employeeId": "معرف الموظف",
+      "employeeName": "اسم الموظف",
+      "designation": "المسمى الوظيفي",
+      "mail": "البريد الإلكتروني",
+      "location": "الموقع",
+      "status": "الحالة",
+      "trustworthiness": "الموثوقية",
+      "rating": "التقييم",
+      "software": "الكفاءة البرمجية",
+      "salary": "الراتب الحالي",
+      "address": "العنوان"
+    },
+    "status": {
+      "active": "نشط",
+      "inactive": "غير نشط"
+    },
+    "trustworthiness": {
+      "perfect": "ممتاز",
+      "sufficient": "كافٍ",
+      "insufficient": "غير كافٍ"
+    }
+  }
+}

@@ -1,0 +1,21 @@
+<section class="page home-page">
+  <header class="page__header">
+    <h2 class="page__title">{{ 'home.welcome' | translate }}</h2>
+    <p class="page__subtitle">{{ 'home.description' | translate }}</p>
+  </header>
+
+  <div class="card-grid">
+    @for (stat of stats; track stat.labelKey) {
+      <article class="stat-card">
+        <p class="stat-card__label">{{ stat.labelKey | translate }}</p>
+        <p class="stat-card__value">{{ stat.value }}</p>
+      </article>
+    }
+  </div>
+
+  <section class="panel home-page__overview-panel">
+    <h3 class="panel__title">{{ 'home.gridOverview' | translate }}</h3>
+    <p class="panel__subtitle">{{ 'home.gridOverviewDescription' | translate }}</p>
+    <app-grid-overview />
+  </section>
+</section>

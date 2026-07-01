@@ -1,0 +1,234 @@
+@use 'sass:math';
+@use 'sass:color';
+@use 'sass:list';
+@use 'sass:meta';
+
+@function mapcolorvariable($pallete-name){
+  @return var(#{'--color-sf-'+ $pallete-name});
+}
+@function maplayoutvariable($pallete-name){
+  @return var(#{'--e-'+  $pallete-name});
+}
+@function darken-color($color, $amount) {
+  @if is-custom-property($color) {
+    @return #{$color}-#{$amount};
+  }
+  @return adjust-color($color, $lightness: -1 * $amount);
+}
+@mixin lighten-color($color, $amount) {
+  filter: brightness(#{100% + $amount}) saturate(100%) hue-rotate(0deg);
+  background-color: $color;
+}
+@function rgbaChange($hex, $alpha: 1) {
+  $r: str-slice($hex, 1, 2);
+  $g: str-slice($hex, 3, 4);
+  $b: str-slice($hex, 5, 6);
+  $rgba: rgba(hex($r), hex($g), hex($b), $alpha);
+  @return $rgba;
+}
+
+// =========================================================================
+// 1. INTEGRATED DESIGN TOKENS (:root CSS Custom Properties)
+// Syncfusion requires colors in raw R, G, B formats inside :root 
+// so its internal scss functions can dynamically build rgba() states.
+// =========================================================================
+:root {
+  // Brand Base Colors (Converted to R, G, B from tokens.scss values)
+  --color-sf-black: 22, 22, 22;                     // #161616
+  --color-sf-white: 255, 255, 255;                 // #FFFFFF
+  
+  // Theme Core Colors 
+  --color-sf-primary: 18, 168, 158;                 // #12A89E
+  --color-sf-primary-container: 207, 250, 254;     // #CFFAFE
+  --color-sf-secondary: 22, 41, 76;                 // #16294C
+  --color-sf-secondary-container: 232, 235, 242;   // #E8EBF2
+  --color-sf-tertiary: 86, 44, 45;                 // #562C2D
+  --color-sf-tertiary-container: 244, 237, 236;     // #F4EDEC
+  
+  // Surfaces & Semantic Color Maps
+  --color-sf-surface: 255, 255, 255;                // #FFFFFF
+  --color-sf-surface-variant: 243, 244, 246;        // #F3F4F6
+  --color-sf-background: var(--color-sf-surface);
+  
+  --color-sf-on-primary: 255, 255, 255;
+  --color-sf-on-primary-container: 22, 41, 76;     // Mapped to secondary dark
+  --color-sf-on-secondary: 255, 255, 255;
+  --color-sf-on-secondary-container: 22, 41, 76;
+  --color-sf-on-surface: 22, 22, 22;               // Crisp black slate
+  --color-sf-on-surface-variant: 86, 44, 45;       // Tertiary text variant
+  --color-sf-on-background: 22, 22, 22;
+  
+  --color-sf-outline: 121, 116, 126;
+  --color-sf-outline-variant: 196, 199, 197;
+  --color-sf-shadow: 22, 22, 22;
+  --color-sf-surface-tint-color: 18, 168, 158;     // Using Primary Accent
+  --color-sf-inverse-surface: 49, 48, 51;
+  --color-sf-inverse-on-surface: 244, 239, 244;
+  --color-sf-inverse-primary: 207, 250, 254;
+  --color-sf-scrim: 0, 0, 0;
+  
+  --color-sf-error: 179, 38, 30;
+  --color-sf-error-container: 249, 222, 220;
+  --color-sf-on-error: 255, 250, 250;
+  --color-sf-on-error-container: 65, 14, 11;
+  
+  --color-sf-success: 32, 81, 7;
+  --color-sf-success-container: 209, 255, 186;
+  --color-sf-on-success: 244, 255, 239;
+  --color-sf-on-success-container: 13, 39, 0;
+  
+  --color-sf-info: 1, 87, 155;
+  --color-sf-info-container: 233, 245, 255;
+  --color-sf-on-info: 250, 253, 255;
+  --color-sf-on-info-container: 0, 51, 91;
+  
+  --color-sf-warning: 145, 76, 0;
+  --color-sf-warning-container: 254, 236, 222;
+  --color-sf-on-warning: 255, 255, 255;
+  --color-sf-on-warning-container: 47, 21, 0;
+  
+  --color-sf-spreadsheet-gridline: var(--color-sf-surface-variant);
+  --color-sf-shadow-focus-ring1: 0 0 0 1px rgb(255, 255, 255), 0 0 0 3px rgb(18, 168, 158);
+  --color-sf-diagram-palette-background: --color-sf-white;
+  --color-sf-success-text: 255, 255, 255;
+  --color-sf-warning-text: 255, 255, 255;
+  --color-sf-danger-text: 255, 255, 255;
+  --color-sf-info-text: 255, 255, 255;
+  --color-sf-content-text-color-alt2: var(--color-sf-on-secondary-container);
+  --color-sf-secondary-bg-color: var(--color-sf-surface);
+}
+
+:root,
+.e-dark-mode {
+  --e-font-name: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --e-serif-font-name: 'Roboto';
+  --e-mono-font-name: 'Roboto Mono';
+  --e-radius: 1rem;
+  --e-border: 1rem;
+  --e-font-sans: sans-serif;
+  --e-font-serif: serif;
+  --e-font-mono: monospace;
+  --e-font-family: var(--e-font-name), var(--e-font-sans);
+}
+
+// =========================================================================
+// 2. SASS CORE VARIABLES MAPPING
+// =========================================================================
+$black: mapcolorvariable('black') !default;
+$white: mapcolorvariable('white') !default;
+$primary : mapcolorvariable('primary') !default;
+$primary-container: mapcolorvariable('primary-container') !default;
+$secondary: mapcolorvariable('secondary') !default;
+$secondary-container: mapcolorvariable('secondary-container') !default;
+$tertiary: mapcolorvariable('tertiary') !default;
+$tertiary-container: mapcolorvariable('tertiary-container') !default;
+$surface: mapcolorvariable('surface') !default;
+$surface-variant: mapcolorvariable('surface-variant') !default;
+$background: mapcolorvariable('background') !default;
+$on-primary: mapcolorvariable('on-primary') !default;
+$on-primary-container: mapcolorvariable('on-primary-container') !default;
+$on-secondary: mapcolorvariable('on-secondary') !default;
+$on-secondary-container: mapcolorvariable('on-secondary-container') !default;
+$on-tertiary: mapcolorvariable('on-tertiary') !default;
+$on-tertiary-containe: mapcolorvariable('on-tertiary-containe') !default;
+$on-surface: mapcolorvariable('on-surface') !default;
+$on-surface-variant: mapcolorvariable('on-surface-variant') !default;
+$on-background: mapcolorvariable('on-background') !default;
+$outline: mapcolorvariable('outline') !default;
+$outline-variant: mapcolorvariable('outline-variant') !default;
+$shadow: mapcolorvariable('shadow') !default;
+$surface-tint-color: mapcolorvariable('surface-tint-color') !default;
+$inverse-surface: mapcolorvariable('inverse-surface') !default;
+$inverse-on-surface: mapcolorvariable('inverse-on-surface') !default;
+$inverse-primary: mapcolorvariable('inverse-primary') !default;
+$scrim:mapcolorvariable('scrim') !default;
+$error: mapcolorvariable('error') !default;
+$error-container: mapcolorvariable('error-container') !default;
+$on-error: mapcolorvariable('on-error') !default;
+$on-error-container: mapcolorvariable('on-error-container') !default;
+$success: mapcolorvariable('success') !default;
+$success-container: mapcolorvariable('success-container') !default;
+$on-success: mapcolorvariable('on-success') !default;
+$on-success-container: mapcolorvariable('on-success-container') !default;
+$info: mapcolorvariable('info') !default;
+$info-container: mapcolorvariable('info-container') !default;
+$on-info: mapcolorvariable('on-info') !default;
+$on-info-container: mapcolorvariable('on-info-container') !default;
+$warning: mapcolorvariable('warning') !default;
+$warning-container: mapcolorvariable('warning-container') !default;
+$on-warning: mapcolorvariable('on-warning') !default;
+$on-warning-container: mapcolorvariable('on-warning-container') !default;
+$success-text: mapcolorvariable('success-text') !default;
+$warning-text: mapcolorvariable('warning-text') !default;
+$info-text: mapcolorvariable('info-text') !default;
+$danger-text: mapcolorvariable('danger-text') !default;
+
+$opacity0: 0 !default;
+$opacity4: .04 !default;
+$opacity5: .05 !default;
+$opacity6: .06 !default;
+$opacity8: .08 !default;
+$opacity11: .11 !default;
+$opacity12: .12 !default;
+$opacity14: .14 !default;
+$opacity16: .16 !default;
+
+$surface1: linear-gradient(0deg, rgba($primary, $opacity5), rgba($primary, $opacity5)), rgba($surface) !default;
+$surface2: linear-gradient(0deg, rgba($primary, $opacity8), rgba($primary, $opacity8)), rgba($surface) !default;
+$surface3: linear-gradient(0deg, rgba($primary, $opacity11), rgba($primary, $opacity11)), rgba($surface) !default;
+$surface4: linear-gradient(0deg, rgba($primary, $opacity12), rgba($primary, $opacity12)), rgba($surface) !default;
+$surface5: linear-gradient(0deg, rgba($primary, $opacity14), rgba($primary, $opacity14)), rgba($surface) !default;
+$surface6: linear-gradient(0deg, rgba($primary, $opacity16), rgba($primary, $opacity16)), rgba($surface) !default;
+
+// Enhanced Design Elevation Shadows utilizing truer design slate color
+$level1: 0 1px 3px 1px rgba(22, 22, 22, .15), 0 1px 2px 0 rgba(22, 22, 22, .3);
+$level2: 0 2px 6px 2px rgba(22, 22, 22, .15), 0 1px 2px 0 rgba(22, 22, 22, .3);
+$level3: 0 1px 3px 0 rgba(22, 22, 22, .3), 0 4px 8px 3px rgba(22, 22, 22, .15);
+$level4: 0 2px 3px 0 rgba(22, 22, 22, .3), 0 6px 10px 4px rgba(22, 22, 22, .15);
+$level5: 0 4px 4px 0 rgba(22, 22, 22, .3), 0 8px 12px 6px rgba(22, 22, 22, .15);
+
+// =========================================================================
+// 3. OVERRIDING COMPONENT SPECIFIC RADII (Hard-coded from tokens.scss Layouts)
+// =========================================================================
+$btn-small-radius:             4px !default;   // $radius-s
+$btn-default-radius:           6px !default;   // $radius-m
+$btn-bigger-small-radius:      6px !default;   // $radius-m
+$btn-bigger-radius:            8px !default;   // $radius-l
+
+$checkbox-small-radius:        4px !default;   // $radius-s
+$checkbox-default-radius:      4px !default;
+$checkbox-bigger-small-radius: 4px !default;
+$checkbox-bigger-radius:       4px !default;
+
+$chip-small-radius:            4px !default;   // $radius-s
+$chip-default-radius:          6px !default;   // $radius-m
+$chip-bigger-small-radius:     6px !default;
+$chip-bigger-radius:           6px !default;
+
+$input-small-radius:           4px !default;   // $radius-s
+$input-default-radius:         6px !default;   // $radius-m
+$input-bigger-small-radius:    6px !default;
+$input-bigger-radius:          8px !default;   // $radius-l
+
+$flyout-small-radius:          4px !default;   // $radius-s
+$flyout-default-radius:        6px !default;   // $radius-m
+$flyout-bigger-small-radius:   6px !default;
+$flyout-bigger-radius:         8px !default;   // $radius-l
+
+$modal-default-radius:         8px !default;   // $radius-l
+$modal-bigger-radius:          12px !default;  // $radius-xl
+
+$card-default-radius:          8px !default;   // $radius-l
+$card-bigger-radius:           12px !default;  // $radius-xl
+
+$tooltip-default-radius:       4px !default;   // $radius-s
+$tooltip-bigger-radius:        6px !default;   // $radius-m
+$toast-default-radius:         8px !default;   // $radius-l
+$toast-bigger-radius:          12px !default;  // $radius-xl
+$msg-default-radius:           6px !default;   // $radius-m
+$msg-bigger-radius:            8px !default;   // $radius-l
+
+$list-hover-radius:            6px !default;   // $radius-m
+$list-bigger-hover-radius:     8px !default;   // $radius-l
+$flyout-hover-radius:          6px !default;   // $radius-m
+$flyout-bigger-hover-radius:   8px !default;   // $radius-l

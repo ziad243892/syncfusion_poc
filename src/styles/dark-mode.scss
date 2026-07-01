@@ -1,0 +1,248 @@
+// Dark mode theme — toggled via .e-dark-mode on <html> (ThemeService).
+// Overrides Syncfusion Material 3 tokens and app shell variables.
+
+html.e-dark-mode {
+  color-scheme: dark;
+
+  // -------------------------------------------------------------------------
+  // Syncfusion Material 3 tokens (R, G, B channels)
+  // -------------------------------------------------------------------------
+  --color-sf-black: 244, 239, 244;
+  --color-sf-white: 18, 18, 20;
+
+  --color-sf-primary: 56, 198, 188;
+  --color-sf-primary-container: 0, 77, 72;
+  --color-sf-secondary: 184, 200, 232;
+  --color-sf-secondary-container: 45, 58, 82;
+  --color-sf-tertiary: 232, 184, 185;
+  --color-sf-tertiary-container: 68, 40, 41;
+
+  --color-sf-surface: 18, 18, 20;
+  --color-sf-surface-variant: 38, 38, 42;
+  --color-sf-background: var(--color-sf-surface);
+
+  --color-sf-on-primary: 0, 32, 29;
+  --color-sf-on-primary-container: 168, 245, 239;
+  --color-sf-on-secondary: 22, 41, 76;
+  --color-sf-on-secondary-container: 216, 226, 244;
+  --color-sf-on-tertiary: 68, 40, 41;
+  --color-sf-on-surface: 230, 225, 229;
+  --color-sf-on-surface-variant: 202, 196, 208;
+  --color-sf-on-background: 230, 225, 229;
+
+  --color-sf-outline: 147, 143, 153;
+  --color-sf-outline-variant: 73, 69, 79;
+  --color-sf-shadow: 0, 0, 0;
+  --color-sf-surface-tint-color: 56, 198, 188;
+  --color-sf-inverse-surface: 230, 225, 229;
+  --color-sf-inverse-on-surface: 49, 48, 51;
+  --color-sf-inverse-primary: 0, 99, 92;
+  --color-sf-scrim: 0, 0, 0;
+
+  --color-sf-error: 242, 184, 181;
+  --color-sf-error-container: 93, 26, 22;
+  --color-sf-on-error: 96, 20, 16;
+  --color-sf-on-error-container: 249, 222, 220;
+
+  --color-sf-success: 164, 214, 141;
+  --color-sf-success-container: 20, 52, 4;
+  --color-sf-on-success: 13, 39, 0;
+  --color-sf-on-success-container: 209, 255, 186;
+
+  --color-sf-info: 144, 202, 249;
+  --color-sf-info-container: 0, 51, 91;
+  --color-sf-on-info: 0, 51, 91;
+  --color-sf-on-info-container: 207, 233, 252;
+
+  --color-sf-warning: 255, 204, 128;
+  --color-sf-warning-container: 72, 38, 0;
+  --color-sf-on-warning: 47, 21, 0;
+  --color-sf-on-warning-container: 255, 220, 196;
+
+  --color-sf-spreadsheet-gridline: var(--color-sf-surface-variant);
+  --color-sf-shadow-focus-ring1: 0 0 0 1px rgb(18, 18, 20),
+    0 0 0 3px rgb(56, 198, 188);
+  --color-sf-diagram-palette-background: var(--color-sf-surface);
+  --color-sf-success-text: 13, 39, 0;
+  --color-sf-warning-text: 47, 21, 0;
+  --color-sf-danger-text: 96, 20, 16;
+  --color-sf-info-text: 0, 51, 91;
+  --color-sf-content-text-color-alt2: var(--color-sf-on-secondary-container);
+  --color-sf-secondary-bg-color: var(--color-sf-surface);
+
+  // -------------------------------------------------------------------------
+  // App shell aliases
+  // -------------------------------------------------------------------------
+  --app-surface: rgb(var(--color-sf-surface));
+  --app-surface-muted: rgb(var(--color-sf-surface-variant));
+  --app-text: rgb(var(--color-sf-on-surface));
+  --app-text-muted: rgba(var(--color-sf-on-surface), 0.72);
+  --app-border: rgba(var(--color-sf-outline-variant), 1);
+  --app-primary: rgb(var(--color-sf-primary));
+  --app-shadow: 0 0.125rem 0.75rem rgba(0, 0, 0, 0.45);
+
+  background-color: var(--app-surface-muted);
+  color: var(--app-text);
+}
+
+html.e-dark-mode body {
+  background-color: var(--app-surface-muted);
+  color: var(--app-text);
+}
+
+// -------------------------------------------------------------------------
+// Native controls (date input, scrollbars)
+// -------------------------------------------------------------------------
+html.e-dark-mode {
+  input[type='date'],
+  input[type='time'],
+  input[type='datetime-local'],
+  select,
+  textarea {
+    background-color: var(--app-surface);
+    color: var(--app-text);
+    border-color: var(--app-border);
+    color-scheme: dark;
+  }
+
+  ::selection {
+    background: rgba(var(--color-sf-primary), 0.35);
+    color: var(--app-text);
+  }
+
+  scrollbar-color: rgba(var(--color-sf-outline), 0.8) var(--app-surface-muted);
+
+  &::-webkit-scrollbar-track {
+    background: var(--app-surface-muted);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(var(--color-sf-outline), 0.8);
+    border-radius: 0.5rem;
+  }
+}
+
+// -------------------------------------------------------------------------
+// Syncfusion component surfaces
+// -------------------------------------------------------------------------
+html.e-dark-mode {
+  .e-sidebar,
+  .e-sidebar.e-left,
+  .e-sidebar.e-right {
+    background: var(--app-surface) !important;
+    color: var(--app-text) !important;
+    border-color: var(--app-border) !important;
+  }
+
+  .e-grid {
+    background: var(--app-surface);
+    color: var(--app-text);
+    border-color: var(--app-border);
+  }
+
+  .e-grid .e-gridheader,
+  .e-grid .e-headercell,
+  .e-grid .e-detailheadercell {
+    background: var(--app-surface-muted);
+    color: var(--app-text);
+    border-color: var(--app-border);
+  }
+
+  .e-grid .e-rowcell,
+  .e-grid .e-groupcaption,
+  .e-grid .e-indentcell,
+  .e-grid .e-recordpluscollapse,
+  .e-grid .e-recordplusexpand {
+    background: var(--app-surface);
+    color: var(--app-text);
+    border-color: var(--app-border);
+  }
+
+  .e-grid .e-altrow .e-rowcell {
+    background: rgba(var(--color-sf-primary), 0.04);
+  }
+
+  .e-grid .e-row:hover .e-rowcell {
+    background: rgba(var(--color-sf-primary), 0.1);
+  }
+
+  .e-input-group,
+  .e-input-group.e-control-wrapper,
+  .e-float-input,
+  .e-float-input.e-control-wrapper {
+    background: var(--app-surface);
+    color: var(--app-text);
+    border-color: var(--app-border);
+  }
+
+  .e-input-group input,
+  .e-input-group textarea,
+  .e-float-input input,
+  .e-float-input textarea {
+    background: transparent;
+    color: var(--app-text);
+  }
+
+  .e-dropdownlist,
+  .e-ddl.e-input-group,
+  .e-ddl.e-input-group.e-control-wrapper {
+    background: var(--app-surface);
+    color: var(--app-text);
+    border-color: var(--app-border);
+  }
+
+  .e-popup.e-ddl,
+  .e-popup.e-ddl-device,
+  .e-dropdownbase .e-list-item,
+  .e-dropdownbase .e-list-group-item {
+    background: var(--app-surface);
+    color: var(--app-text);
+  }
+
+  .e-dropdownbase .e-list-item.e-hover,
+  .e-dropdownbase .e-list-item.e-active {
+    background: rgba(var(--color-sf-primary), 0.16);
+    color: var(--app-primary);
+  }
+
+  .e-pager {
+    background: var(--app-surface);
+    color: var(--app-text);
+    border-color: var(--app-border);
+  }
+
+  .e-pager .e-numericitem,
+  .e-pager .e-currentitem {
+    background: var(--app-surface-muted);
+    color: var(--app-text);
+  }
+
+  .e-pager .e-currentitem {
+    background: rgba(var(--color-sf-primary), 0.2);
+    color: var(--app-primary);
+  }
+
+  .e-btn.e-flat,
+  .e-btn.e-outline {
+    color: var(--app-text);
+  }
+
+  .e-checkbox-wrapper .e-label,
+  .e-css.e-checkbox-wrapper .e-label {
+    color: var(--app-text);
+  }
+
+  .e-menu-wrapper,
+  .e-menu-container {
+    background: var(--app-surface);
+    color: var(--app-text);
+  }
+
+  .e-filter-popup,
+  .e-excelfilter,
+  .e-flmenu {
+    background: var(--app-surface);
+    color: var(--app-text);
+    border-color: var(--app-border);
+  }
+}

@@ -1,0 +1,59 @@
+<section class="page employees-page">
+  <header class="page__header">
+    <h2 class="page__title">Pivot Table Overview</h2>
+    <p class="page__subtitle">
+      QS World University Rankings by region, country, and faculty metrics.
+    </p>
+  </header>
+
+  <div class="panel employees-page__pivot-panel">
+    <ejs-pivotview
+      #pivotview
+      id="PivotView"
+      class="employees-page__pivot"
+      [dataSourceSettings]="dataSourceSettings"
+      [chartSettings]="chartSettings"
+      [displayOption]="displayOption"
+      [gridSettings]="gridSettings"
+      [toolbar]="toolbarOptions"
+      [allowExcelExport]="true"
+      [allowConditionalFormatting]="true"
+      [allowNumberFormatting]="true"
+      [allowPdfExport]="true"
+      [showToolbar]="true"
+      [allowCalculatedField]="true"
+      [showFieldList]="true"
+      [exportAllPages]="false"
+      [maxNodeLimitInMemberEditor]="50"
+      [enableVirtualization]="false"
+      [allowDeferLayoutUpdate]="true"
+      [allowDrillThrough]="true"
+      [showGroupingBar]="true"
+      [allowGrouping]="true"
+      [enableValueSorting]="true"
+      [enableFieldSearching]="true"
+      width="100%"
+      [height]="pivotHeight"
+      (saveReport)="saveReport($event)"
+      (loadReport)="loadReport($event)"
+      (fetchReport)="fetchReport($event)"
+      (renameReport)="renameReport($event)"
+      (removeReport)="removeReport($event)"
+      (newReport)="newReport()"
+      (toolbarRender)="beforeToolbarRender($event)"
+      (chartSeriesCreated)="chartSeriesCreated()"
+      (load)="load($event)"
+    ></ejs-pivotview>
+
+    <p class="employees-page__source">
+      Source:
+      <a
+        href="https://www.topuniversities.com/university-rankings?utm_source=topnav"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        QS World University Rankings
+      </a>
+    </p>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+.forms-page__feedback {
+  padding: 0.75rem 1rem;
+  border-radius: var(--app-radius);
+  background: rgba(var(--color-sf-primary), 0.12);
+  color: var(--app-primary);
+  font-size: 0.9rem;
+}
+
+.forms-page__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.forms-page__section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.forms-page__fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+}
+
+.forms-page__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  font-size: 0.875rem;
+}
+
+.forms-page__date {
+  min-height: 2.5rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--app-border);
+  border-radius: 0.5rem;
+  background: var(--app-surface);
+  color: var(--app-text);
+}
+
+.forms-page__checks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.forms-page__check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+
+  input[type='checkbox'] {
+    width: 1rem;
+    height: 1rem;
+    accent-color: var(--app-primary);
+  }
+}
+
+.forms-page__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}

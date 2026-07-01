@@ -1,0 +1,68 @@
+.employees-page__pivot-panel {
+  padding: 0;
+  overflow: hidden;
+}
+
+.employees-page__source {
+  margin: 0;
+  padding: 0.75rem 1rem 1rem;
+  color: var(--app-text-muted);
+  font-size: 0.875rem;
+  border-block-start: 1px solid var(--app-border);
+
+  a {
+    color: var(--app-primary);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+:host ::ng-deep .employees-page__pivot {
+  display: block;
+  width: 100%;
+
+  &.e-pivotview {
+    border: 0;
+    border-radius: 0;
+  }
+
+  .e-pivotview-container,
+  .e-grid {
+    width: 100% !important;
+  }
+
+  // Wider row headers so university names are readable.
+  .e-grid .e-rowcell.e-rowsheader,
+  .e-grid .e-headercell.e-rowsheader {
+    min-width: 13.5rem;
+    max-width: none;
+  }
+
+  .e-grid .e-rowcell.e-rowsheader .e-cellvalue,
+  .e-grid .e-headercell.e-rowsheader .e-cellvalue {
+    white-space: normal;
+    line-height: 1.35;
+  }
+
+  .e-grid .e-rowcell,
+  .e-grid .e-headercell {
+    text-align: start;
+  }
+
+  // Keep the horizontal scrollbar aligned with the grid body.
+  .e-grid .e-content {
+    overflow-x: auto;
+  }
+
+  .e-grid .e-movablescrollbar {
+    width: 100% !important;
+  }
+
+  .e-grouping-bar,
+  .e-pivot-toolbar {
+    border-block-end: 1px solid var(--app-border);
+  }
+}

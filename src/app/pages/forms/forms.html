@@ -1,0 +1,115 @@
+<section class="page forms-page">
+  <header class="page__header">
+    <h2 class="page__title">{{ 'forms.title' | translate }}</h2>
+    <p class="page__subtitle">{{ 'forms.subtitle' | translate }}</p>
+  </header>
+
+  @if (feedback()) {
+    <p class="forms-page__feedback" role="status">{{ feedback() | translate }}</p>
+  }
+
+  <form class="forms-page__form" (ngSubmit)="save()">
+    <section class="panel forms-page__section">
+      <h3 class="panel__title">{{ 'forms.sections.personal' | translate }}</h3>
+      <div class="forms-page__fields">
+        <label class="forms-page__field">
+          <span>{{ 'forms.fields.fullName' | translate }}</span>
+          <ejs-textbox
+            [(value)]="fullName"
+            [placeholder]="'forms.placeholders.fullName' | translate"
+            cssClass="e-outline"
+            floatLabelType="Auto"
+            [enableRtl]="isRtl()"
+          ></ejs-textbox>
+        </label>
+
+        <label class="forms-page__field">
+          <span>{{ 'forms.fields.email' | translate }}</span>
+          <ejs-textbox
+            [(value)]="email"
+            [placeholder]="'forms.placeholders.email' | translate"
+            cssClass="e-outline"
+            floatLabelType="Auto"
+            [enableRtl]="isRtl()"
+          ></ejs-textbox>
+        </label>
+
+        <label class="forms-page__field">
+          <span>{{ 'forms.fields.phone' | translate }}</span>
+          <ejs-textbox
+            [(value)]="phone"
+            [placeholder]="'forms.placeholders.phone' | translate"
+            cssClass="e-outline"
+            floatLabelType="Auto"
+            [enableRtl]="isRtl()"
+          ></ejs-textbox>
+        </label>
+      </div>
+    </section>
+
+    <section class="panel forms-page__section">
+      <h3 class="panel__title">{{ 'forms.sections.work' | translate }}</h3>
+      <div class="forms-page__fields">
+        <label class="forms-page__field">
+          <span>{{ 'forms.fields.department' | translate }}</span>
+          <ejs-dropdownlist
+            [dataSource]="departmentOptions()"
+            [fields]="{ text: 'label', value: 'id' }"
+            [(value)]="department"
+            cssClass="e-outline"
+            floatLabelType="Auto"
+            popupHeight="220px"
+            [enableRtl]="isRtl()"
+          ></ejs-dropdownlist>
+        </label>
+
+        <label class="forms-page__field">
+          <span>{{ 'forms.fields.role' | translate }}</span>
+          <ejs-dropdownlist
+            [dataSource]="roleOptions()"
+            [fields]="{ text: 'label', value: 'id' }"
+            [(value)]="role"
+            cssClass="e-outline"
+            floatLabelType="Auto"
+            popupHeight="220px"
+            [enableRtl]="isRtl()"
+          ></ejs-dropdownlist>
+        </label>
+
+        <label class="forms-page__field">
+          <span>{{ 'forms.fields.startDate' | translate }}</span>
+          <input
+            class="forms-page__date"
+            type="date"
+            name="startDate"
+            [(ngModel)]="startDate"
+          />
+        </label>
+      </div>
+    </section>
+
+    <section class="panel forms-page__section">
+      <h3 class="panel__title">{{ 'forms.sections.preferences' | translate }}</h3>
+      <div class="forms-page__checks">
+        <label class="forms-page__check">
+          <input type="checkbox" name="remoteWork" [(ngModel)]="remoteWork" />
+          <span>{{ 'forms.fields.remote' | translate }}</span>
+        </label>
+
+        <label class="forms-page__check">
+          <input type="checkbox" name="notifications" [(ngModel)]="notifications" />
+          <span>{{ 'forms.fields.notifications' | translate }}</span>
+        </label>
+      </div>
+    </section>
+
+    <div class="forms-page__actions">
+      <button type="submit" class="e-btn e-primary">
+        {{ 'forms.actions.save' | translate }}
+      </button>
+      <button type="button" class="e-btn e-outline" (click)="reset()">
+        {{ 'forms.actions.reset' | translate }}
+      </button>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,42 @@
+{
+  "name": "syncfusion",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "copy-themes": "node scripts/copy-themes.mjs"
+  },
+  "private": true,
+  "packageManager": "npm@10.9.0",
+  "dependencies": {
+    "@angular/common": "^21.2.0",
+    "@angular/compiler": "^21.2.0",
+    "@angular/core": "^21.2.0",
+    "@angular/forms": "^21.2.0",
+    "@angular/platform-browser": "^21.2.0",
+    "@angular/router": "^21.2.0",
+    "@syncfusion/ej2-angular-buttons": "^33.2.15",
+    "@syncfusion/ej2-angular-dropdowns": "^33.2.15",
+    "@syncfusion/ej2-angular-grids": "^33.2.12",
+    "@syncfusion/ej2-angular-inputs": "^33.2.15",
+    "@syncfusion/ej2-angular-navigations": "^33.2.15",
+    "@syncfusion/ej2-angular-pivotview": "^33.2.6",
+    "@syncfusion/ej2-buttons": "^33.2.15",
+    "@syncfusion/ej2-data": "^33.2.12",
+    "@syncfusion/ej2-material-theme": "~33.2.12",
+    "rxjs": "~7.8.0",
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.2.17",
+    "@angular/cli": "^21.2.17",
+    "@angular/compiler-cli": "^21.2.0",
+    "jsdom": "^28.0.0",
+    "prettier": "^3.8.1",
+    "typescript": "~5.9.2",
+    "vitest": "^4.0.8"
+  }
+}

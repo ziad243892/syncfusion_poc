@@ -1,0 +1,136 @@
+{
+  "app": {
+    "title": "Enterprise Portal",
+    "subtitle": "Syncfusion Material 3 POC"
+  },
+  "nav": {
+    "dashboard": "Dashboard",
+    "employees": "Employees",
+    "forms": "Forms",
+    "home": "Home"
+  },
+  "header": {
+    "toggleSidebar": "Toggle navigation",
+    "toggleTheme": "Toggle dark mode",
+    "toggleLanguage": "Switch language (English / Arabic)",
+    "toggleGrayMode": "Toggle gray mode",
+    "zoomIn": "Zoom in (current {{level}}%)",
+    "zoomOut": "Zoom out (current {{level}}%)",
+    "resetAccessibility": "Reset accessibility settings",
+    "accessibilityToolbar": "Accessibility controls",
+    "language": "Language",
+    "direction": "Text direction"
+  },
+  "footer": {
+    "copyright": "© {{year}} Enterprise Portal. All rights reserved.",
+    "version": "Version {{version}}",
+    "builtWith": "Built with Syncfusion & Angular"
+  },
+  "home": {
+    "welcome": "Welcome back",
+    "description": "A production-style shell with theming, bilingual support, and responsive layout.",
+    "stats": {
+      "employees": "Total Employees",
+      "departments": "Departments",
+      "active": "Active Today",
+      "pending": "Pending Requests"
+    },
+    "recentActivity": "Recent Activity",
+    "quickActions": "Quick Actions",
+    "viewAll": "View all employees",
+    "openForms": "Open forms demo",
+    "gridOverview": "Grid Overview",
+    "gridOverviewDescription": "Syncfusion grid overview demo with virtual scrolling, filtering, sorting, and column templates."
+  },
+  "employees": {
+    "title": "Employee Directory",
+    "subtitle": "Search, sort, and manage team records.",
+    "search": "Search employees...",
+    "columns": {
+      "id": "ID",
+      "name": "Name",
+      "department": "Department",
+      "role": "Role",
+      "status": "Status",
+      "email": "Email"
+    },
+    "status": {
+      "active": "Active",
+      "leave": "On Leave",
+      "remote": "Remote"
+    }
+  },
+  "forms": {
+    "title": "Form Components",
+    "subtitle": "Inputs, dropdowns, and actions aligned with the design system.",
+    "sections": {
+      "personal": "Personal Information",
+      "work": "Work Details",
+      "preferences": "Preferences"
+    },
+    "fields": {
+      "fullName": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "department": "Department",
+      "role": "Job Role",
+      "startDate": "Start Date",
+      "remote": "Remote work enabled",
+      "notifications": "Email notifications"
+    },
+    "placeholders": {
+      "fullName": "Enter full name",
+      "email": "name@company.com",
+      "phone": "+1 555 000 0000"
+    },
+    "actions": {
+      "save": "Save",
+      "reset": "Reset",
+      "cancel": "Cancel"
+    },
+    "messages": {
+      "saved": "Form saved successfully.",
+      "reset": "Form has been reset."
+    }
+  },
+  "common": {
+    "light": "Light",
+    "dark": "Dark",
+    "english": "English",
+    "arabic": "Arabic",
+    "ltr": "LTR",
+    "rtl": "RTL"
+  },
+  "gridOverview": {
+    "search": "Search employees...",
+    "selectDataRange": "Select a Data Range",
+    "loadTime": "Load Time",
+    "dataRange": {
+      "1000": "1,000 Rows and 11 Columns",
+      "10000": "10,000 Rows and 11 Columns",
+      "100000": "1,00,000 Rows and 11 Columns"
+    },
+    "columns": {
+      "employeeId": "Employee ID",
+      "employeeName": "Employee Name",
+      "designation": "Designation",
+      "mail": "Mail",
+      "location": "Location",
+      "status": "Status",
+      "trustworthiness": "Trustworthiness",
+      "rating": "Rating",
+      "software": "Software Proficiency",
+      "salary": "Current Salary",
+      "address": "Address"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "trustworthiness": {
+      "perfect": "Perfect",
+      "sufficient": "Sufficient",
+      "insufficient": "Insufficient"
+    }
+  }
+}

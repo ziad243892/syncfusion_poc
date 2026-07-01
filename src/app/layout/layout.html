@@ -1,0 +1,154 @@
+<div class="app-shell">
+  <ejs-sidebar
+  class="app-sidebar"
+  [width]="'var(--app-sidebar-width)'"
+  [isOpen]="sidebarOpen()"
+  [type]="sidebarType()"
+  [enableDock]="false"
+  [enableGestures]="isMobile()"
+  [enableRtl]="isRtl()"
+  [closeOnDocumentClick]="isMobile()"
+  (created)="onSidebarCreated()"
+  >
+    <div class="app-sidebar__brand">
+      <span class="material-icons app-sidebar__logo" aria-hidden="true">hub</span>
+      <div>
+        <p class="app-sidebar__title">{{ 'app.title' | translate }}</p>
+        <p class="app-sidebar__subtitle">{{ 'app.subtitle' | translate }}</p>
+      </div>
+    </div>
+
+    <nav class="app-sidebar__nav" aria-label="Main navigation">
+      @for (item of navItems; track item.path) {
+        <a
+          class="app-sidebar__link"
+          [routerLink]="item.path"
+          routerLinkActive="app-sidebar__link--active"
+          (click)="closeSidebarOnMobile()"
+        >
+          <span class="material-icons" aria-hidden="true">{{ item.icon }}</span>
+          <span>{{ item.labelKey | translate }}</span>
+        </a>
+      }
+    </nav>
+  </ejs-sidebar>
+
+  @if (isMobile() && sidebarOpen()) {
+    <button
+      type="button"
+      class="app-shell__backdrop"
+      [attr.aria-label]="'header.toggleSidebar' | translate"
+      (click)="toggleSidebar()"
+    ></button>
+  }
+
+  <div class="app-shell__main">
+    <header class="app-header">
+      <div class="app-header__start">
+        <button
+          type="button"
+          class="e-btn e-flat e-small app-icon-btn"
+          [attr.aria-label]="'header.toggleSidebar' | translate"
+          (click)="toggleSidebar()"
+        >
+          <span class="material-icons" aria-hidden="true">menu</span>
+        </button>
+
+        <div class="app-header__titles">
+          <h1 class="app-header__title">{{ 'app.title' | translate }}</h1>
+          <p class="app-header__subtitle">{{ 'app.subtitle' | translate }}</p>
+        </div>
+      </div>
+
+      <div
+        class="app-header__actions"
+        role="toolbar"
+        [attr.aria-label]="'header.accessibilityToolbar' | translate"
+      >
+        <button
+          type="button"
+          class="e-btn e-flat e-small app-icon-btn"
+          [class.app-icon-btn--active]="theme.language() === 'ar'"
+          [attr.aria-label]="'header.toggleLanguage' | translate"
+          [attr.aria-pressed]="theme.language() === 'ar'"
+          (click)="toggleLanguage()"
+        >
+          <span class="material-icons" aria-hidden="true">language</span>
+        </button>
+
+        <button
+          type="button"
+          class="e-btn e-flat e-small app-icon-btn"
+          [class.app-icon-btn--active]="theme.colorScheme() === 'dark'"
+          [attr.aria-label]="'header.toggleTheme' | translate"
+          [attr.aria-pressed]="theme.colorScheme() === 'dark'"
+          (click)="theme.toggleColorScheme()"
+        >
+          <span class="material-icons" aria-hidden="true">
+            {{ theme.colorScheme() === 'dark' ? 'light_mode' : 'dark_mode' }}
+          </span>
+        </button>
+
+        <button
+          type="button"
+          class="e-btn e-flat e-small app-icon-btn"
+          [class.app-icon-btn--active]="theme.grayMode()"
+          [attr.aria-label]="'header.toggleGrayMode' | translate"
+          [attr.aria-pressed]="theme.grayMode()"
+          (click)="theme.toggleGrayMode()"
+        >
+          <span class="material-icons" aria-hidden="true">tonality</span>
+        </button>
+
+        <button
+          type="button"
+          class="e-btn e-flat e-small app-icon-btn"
+          [attr.aria-label]="'header.zoomOut' | translate: { level: theme.zoomLevel() }"
+          [disabled]="!canZoomOut()"
+          (click)="theme.zoomOut()"
+        >
+          <span class="material-icons" aria-hidden="true">zoom_out</span>
+        </button>
+
+        <button
+          type="button"
+          class="e-btn e-flat e-small app-icon-btn"
+          [attr.aria-label]="'header.zoomIn' | translate: { level: theme.zoomLevel() }"
+          [disabled]="!canZoomIn()"
+          (click)="theme.zoomIn()"
+        >
+          <span class="material-icons" aria-hidden="true">zoom_in</span>
+        </button>
+
+        <button
+          type="button"
+          class="e-btn e-flat e-small app-icon-btn"
+          [attr.aria-label]="'header.resetAccessibility' | translate"
+          (click)="resetAccessibility()"
+        >
+          <span class="material-icons" aria-hidden="true">restart_alt</span>
+        </button>
+      </div>
+    </header>
+
+    <main class="app-content">
+      <router-outlet />
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        {{
+          'footer.copyright'
+            | translate: { year: currentYear }
+        }}
+      </p>
+      <p>{{ 'footer.builtWith' | translate }}</p>
+      <p>
+        {{
+          'footer.version'
+            | translate: { version: appVersion }
+        }}
+      </p>
+    </footer>
+  </div>
+</div>

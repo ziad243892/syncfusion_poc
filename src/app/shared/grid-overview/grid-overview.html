@@ -1,0 +1,242 @@
+<section class="grid-overview control-section">
+  <div class="grid-overview__toolbar">
+    <div class="grid-overview__toolbar-start">
+      <label class="grid-overview__search">
+        <span class="sr-only">{{ 'gridOverview.search' | translate }}</span>
+        <ejs-textbox
+          [placeholder]="'gridOverview.search' | translate"
+          [showClearButton]="true"
+          cssClass="e-outline"
+          floatLabelType="Auto"
+          (input)="onSearch($event)"
+        ></ejs-textbox>
+      </label>
+
+      <ejs-dropdownlist
+        [dataSource]="dataRangeOptions()"
+        [fields]="{ text: 'text', value: 'value' }"
+        [value]="selectedDataCount"
+        [placeholder]="'gridOverview.selectDataRange' | translate"
+        cssClass="e-outline"
+        floatLabelType="Auto"
+        popupHeight="240px"
+        width="220px"
+        (change)="onDataRangeChange($event)"
+      ></ejs-dropdownlist>
+    </div>
+
+    @if (loadTimeMs !== null) {
+      <span class="grid-overview__load-time">
+        {{ 'gridOverview.loadTime' | translate }}: <b>{{ loadTimeMs }}</b><b>ms</b>
+      </span>
+    }
+  </div>
+
+  <div class="grid-overview__grid-shell">
+    @if (isBlockingLoading()) {
+      <div class="grid-overview__skeleton grid-overview__skeleton--blocking" aria-busy="true" aria-live="polite">
+        <div class="grid-overview__skeleton-header">
+          @for (cell of skeletonPlaceholders; track cell) {
+            <span class="grid-overview__skeleton-block grid-overview__skeleton-block--header"></span>
+          }
+        </div>
+        @for (row of skeletonPlaceholders; track row) {
+          <div class="grid-overview__skeleton-row">
+            @for (cell of skeletonPlaceholders; track cell) {
+              <span class="grid-overview__skeleton-block"></span>
+            }
+          </div>
+        }
+      </div>
+    }
+
+    <ejs-grid
+      #overviewGrid
+      class="grid-overview__grid"
+      [class.grid-overview__grid--scroll-loading]="isScrollLoading()"
+      [dataSource]="displayRows()"
+      [locale]="gridLocale()"
+      [allowSelection]="true"
+      [allowFiltering]="true"
+      [allowSorting]="true"
+      [allowMultiSorting]="true"
+      [enableVirtualization]="true"
+      [enableVirtualMaskRow]="true"
+      [loadingIndicator]="loadingIndicator"
+      [filterSettings]="filterSettings"
+      [sortSettings]="sortSettings"
+      [selectionSettings]="selectionSettings"
+      [enableHover]="false"
+      [enableRtl]="isRtl()"
+      height="400"
+      [rowHeight]="38"
+      (created)="onGridCreated()"
+      (dataBound)="onDataBound()"
+      (actionBegin)="onActionBegin($event)"
+      (actionComplete)="onActionComplete($event)"
+    >
+      <e-columns>
+        <e-column type="checkbox" [allowFiltering]="false" [allowSorting]="false" width="60"></e-column>
+        <e-column
+          field="EmployeeID"
+          [visible]="false"
+          [headerText]="'gridOverview.columns.employeeId' | translate"
+          [isPrimaryKey]="true"
+          width="130"
+        ></e-column>
+        <e-column
+          field="Employees"
+          [headerText]="'gridOverview.columns.employeeName' | translate"
+          width="200"
+          clipMode="EllipsisWithTooltip"
+          [template]="empTemplate"
+        ></e-column>
+        <e-column
+          field="Designation"
+          [headerText]="'gridOverview.columns.designation' | translate"
+          width="170"
+          clipMode="EllipsisWithTooltip"
+        ></e-column>
+        <e-column
+          field="Mail"
+          [headerText]="'gridOverview.columns.mail' | translate"
+          width="230"
+        ></e-column>
+        <e-column
+          field="Location"
+          [headerText]="'gridOverview.columns.location' | translate"
+          width="140"
+          [template]="locationTemplate"
+        ></e-column>
+        <e-column
+          field="StatusKey"
+          [headerText]="'gridOverview.columns.status' | translate"
+          width="150"
+          [template]="statusTemplate"
+        ></e-column>
+        <e-column
+          field="Trustworthiness"
+          [headerText]="'gridOverview.columns.trustworthiness' | translate"
+          width="160"
+          [sortComparer]="trustSortComparer"
+          [template]="trustTemplate"
+        ></e-column>
+        <e-column
+          field="Rating"
+          [headerText]="'gridOverview.columns.rating' | translate"
+          width="160"
+          textAlign="Right"
+          [template]="ratingTemplate"
+        ></e-column>
+        <e-column
+          field="Software"
+          [headerText]="'gridOverview.columns.software' | translate"
+          width="180"
+          [allowFiltering]="false"
+          [sortComparer]="softwareSortComparer"
+          [template]="progressTemplate"
+        ></e-column>
+        <e-column
+          field="CurrentSalary"
+          [headerText]="'gridOverview.columns.salary' | translate"
+          format="C2"
+          textAlign="Right"
+          width="160"
+        ></e-column>
+        <e-column
+          field="Address"
+          [headerText]="'gridOverview.columns.address' | translate"
+          width="240"
+          clipMode="EllipsisWithTooltip"
+        ></e-column>
+      </e-columns>
+    </ejs-grid>
+  </div>
+</section>
+
+<ng-template #empTemplate let-data>
+  <div class="grid-overview__employee">
+    <span
+      class="grid-overview__avatar material-icons"
+      [class.grid-overview__avatar--male]="data.EmployeeImg === 'usermale'"
+      [class.grid-overview__avatar--female]="data.EmployeeImg !== 'usermale'"
+      aria-hidden="true"
+    >
+      {{ employeeIcon(data.EmployeeImg) }}
+    </span>
+    <span class="grid-overview__employee-name">{{ data.Employees }}</span>
+  </div>
+</ng-template>
+
+<ng-template #locationTemplate let-data>
+  <div class="grid-overview__location">
+    <span class="material-icons grid-overview__cell-icon" aria-hidden="true">location_on</span>
+    <span>{{ data.Location }}</span>
+  </div>
+</ng-template>
+
+<ng-template #statusTemplate let-data>
+  <div
+    class="statustemp"
+    [class.e-activecolor]="data.StatusKey === 'active'"
+    [class.e-inactivecolor]="data.StatusKey === 'inactive'"
+  >
+    <span
+      class="material-icons grid-overview__status-icon"
+      aria-hidden="true"
+    >
+      {{ statusIcon(data.StatusKey) }}
+    </span>
+    <span
+      class="statustxt"
+      [class.e-activecolor]="data.StatusKey === 'active'"
+      [class.e-inactivecolor]="data.StatusKey === 'inactive'"
+    >
+      {{ data.Status }}
+    </span>
+  </div>
+</ng-template>
+
+<ng-template #trustTemplate let-data>
+  <div class="grid-overview__trust">
+    <span
+      class="material-icons grid-overview__trust-icon"
+      [class.grid-overview__trust-icon--perfect]="data.TrustworthinessKey === 'perfect'"
+      [class.grid-overview__trust-icon--sufficient]="data.TrustworthinessKey === 'sufficient'"
+      [class.grid-overview__trust-icon--insufficient]="data.TrustworthinessKey === 'insufficient'"
+      aria-hidden="true"
+    >
+      {{ trustIcon(data.TrustworthinessKey) }}
+    </span>
+    <span class="grid-overview__trust-text">{{ data.Trustworthiness }}</span>
+  </div>
+</ng-template>
+
+<ng-template #ratingTemplate let-data>
+  <div class="grid-overview__rating" [attr.aria-label]="'Rating ' + data.Rating + ' of 5'">
+    @for (star of ratingStars; track star) {
+      <span
+        class="material-icons grid-overview__star"
+        [class.grid-overview__star--filled]="star <= data.Rating"
+        aria-hidden="true"
+      >
+        star
+      </span>
+    }
+  </div>
+</ng-template>
+
+<ng-template #progressTemplate let-data>
+  <div class="grid-overview__software">
+    <span class="material-icons grid-overview__cell-icon" aria-hidden="true">memory</span>
+    <div class="pbar">
+      <div
+        class="bar"
+        [class.progressdisable]="data.StatusKey === 'inactive'"
+        [style.width.%]="softwareValue(data)"
+      >
+        <div class="barlabel">{{ softwareValue(data) }}%</div>
+      </div>
+    </div>
+  </div>
+</ng-template>

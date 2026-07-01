@@ -1,0 +1,131 @@
+.e-sidebar.e-left,
+.e-sidebar.e-right {
+  border-inline-end: 1px solid var(--app-border);
+}
+
+.e-grid .e-headercell,
+.e-grid .e-rowcell {
+  text-align: start;
+}
+
+// Keep Syncfusion icons for grid controls that still use e-icons.
+.e-grid .e-icons {
+  font-family: 'e-icons';
+}
+
+// Grid filter & sort header icons use Material Icons (Filled).
+.e-grid .e-icon-filter::before,
+.e-grid-menu .e-icon-filter::before,
+.e-excelfilter .e-icon-filter::before,
+.e-grid .e-excl-filter-icon::before,
+.e-grid-menu .e-excl-filter-icon::before,
+.e-excelfilter .e-excl-filter-icon::before,
+.e-grid .e-icon-ascending::before,
+.e-grid-menu .e-icon-ascending::before,
+.e-excelfilter .e-sortascending::before,
+.e-grid .e-icon-descending::before,
+.e-grid-menu .e-icon-descending::before,
+.e-excelfilter .e-sortdescending::before,
+.e-responsive-dialog .e-icon-filter-clear::before,
+.e-excelfilter .e-search-icon::before,
+.e-excelfilter .e-ccsearch-icon::before {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  -webkit-font-feature-settings: 'liga';
+  font-feature-settings: 'liga';
+  -webkit-font-smoothing: antialiased;
+}
+
+.e-grid .e-icon-filter::before,
+.e-grid-menu .e-icon-filter::before,
+.e-excelfilter .e-icon-filter::before,
+.e-grid .e-excl-filter-icon::before,
+.e-grid-menu .e-excl-filter-icon::before,
+.e-excelfilter .e-excl-filter-icon::before {
+  content: 'filter_list';
+}
+
+.e-grid .e-icon-filter.e-filtered::before,
+.e-grid-menu .e-icon-filter.e-filtered::before,
+.e-grid .e-excl-filter-icon.e-filtered::before,
+.e-grid-menu .e-excl-filter-icon.e-filtered::before,
+.e-excelfilter .e-excl-filter-icon.e-filtered::before {
+  content: 'filter_alt';
+}
+
+.e-grid .e-icon-ascending::before,
+.e-grid-menu .e-icon-ascending::before,
+.e-excelfilter .e-sortascending::before {
+  content: 'arrow_upward';
+}
+
+.e-grid .e-icon-descending::before,
+.e-grid-menu .e-icon-descending::before,
+.e-excelfilter .e-sortdescending::before {
+  content: 'arrow_downward';
+}
+
+.e-responsive-dialog .e-icon-filter-clear::before {
+  content: 'filter_alt_off';
+}
+
+.e-excelfilter .e-search-icon::before,
+.e-excelfilter .e-ccsearch-icon::before {
+  content: 'search';
+}
+
+.e-grid .e-headercell .e-icon-filter,
+.e-grid .e-headercell .e-icon-ascending,
+.e-grid .e-headercell .e-icon-descending,
+.e-grid-menu .e-icon-filter,
+.e-grid-menu .e-icon-ascending,
+.e-grid-menu .e-icon-descending {
+  font-family: 'Material Icons';
+  font-size: 18px;
+}
+
+[dir='rtl'] .e-grid .e-icon-filter,
+[dir='rtl'] .e-grid .e-icon-ascending,
+[dir='rtl'] .e-grid .e-icon-descending,
+[dir='rtl'] .e-grid-menu .e-icon-filter,
+[dir='rtl'] .e-grid-menu .e-icon-ascending,
+[dir='rtl'] .e-grid-menu .e-icon-descending {
+  transform: none;
+}
+
+// Global Syncfusion outlined fields (textbox, dropdown, date-like controls).
+.e-input-group,
+.e-float-input,
+.e-input-group.e-control-wrapper,
+.e-float-input.e-control-wrapper,
+.e-ddl.e-input-group,
+.e-date-wrapper.e-input-group,
+.e-date-range-wrapper.e-input-group,
+.e-time-wrapper.e-input-group,
+.e-multiselect.e-input-group,
+.e-combobox.e-input-group {
+  border: 1px solid var(--app-border);
+  border-radius: 0.5rem;
+  background-color: var(--app-surface);
+  box-shadow: none;
+}
+
+.e-input-group:hover,
+.e-float-input:hover,
+.e-input-group.e-control-wrapper:hover,
+.e-float-input.e-control-wrapper:hover {
+  border-color: rgba(var(--color-sf-outline), 1);
+}
+
+.e-input-group.e-input-focus,
+.e-float-input.e-input-focus,
+.e-input-group.e-control-wrapper.e-input-focus,
+.e-float-input.e-control-wrapper.e-input-focus {
+  border-color: var(--app-primary);
+  box-shadow: 0 0 0 1px var(--app-primary);
+}
