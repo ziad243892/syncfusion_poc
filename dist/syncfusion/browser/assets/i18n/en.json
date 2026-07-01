@@ -91,11 +91,36 @@
   },
   "forms": {
     "title": "Form Components",
-    "subtitle": "Inputs, dropdowns, and actions aligned with the design system.",
-    "sections": {
-      "personal": "Personal Information",
-      "work": "Work Details",
-      "preferences": "Preferences"
+    "subtitle": "A full-page showcase of Syncfusion form controls — text, selection, toggles, ratings, uploads, and more.",
+    "demos": {
+      "registration": {
+        "title": "Employee Registration",
+        "desc": "Text inputs, dropdowns, radio buttons, and checkboxes."
+      },
+      "contact": {
+        "title": "Contact Form",
+        "desc": "Masked text, numeric input, autocomplete, and textarea."
+      },
+      "application": {
+        "title": "Job Application",
+        "desc": "ComboBox, MultiSelect, and ListBox selection controls."
+      },
+      "preferences": {
+        "title": "Notification Preferences",
+        "desc": "Switch, checkboxes, radio group, and tag-style MultiSelect."
+      },
+      "survey": {
+        "title": "Feedback Survey",
+        "desc": "Rating, slider, color picker, and priority radio group."
+      },
+      "document": {
+        "title": "Document Upload",
+        "desc": "Text input, dropdown, and file uploader."
+      },
+      "security": {
+        "title": "Security Verification",
+        "desc": "Email input and OTP verification code."
+      }
     },
     "fields": {
       "fullName": "Full Name",
@@ -103,23 +128,65 @@
       "phone": "Phone Number",
       "department": "Department",
       "role": "Job Role",
-      "startDate": "Start Date",
+      "employmentType": "Employment Type",
       "remote": "Remote work enabled",
-      "notifications": "Email notifications"
+      "notifications": "Email notifications",
+      "contactName": "Contact Name",
+      "mobile": "Mobile Number",
+      "budget": "Project Budget",
+      "city": "City",
+      "notes": "Notes",
+      "jobTitle": "Job Title",
+      "experienceYears": "Years of Experience",
+      "skills": "Primary Skills",
+      "additionalSkills": "Additional Skills",
+      "darkModeOn": "Dark",
+      "darkModeOff": "Light",
+      "marketing": "Receive marketing emails",
+      "contactMethod": "Preferred Contact Method",
+      "topics": "Notification Topics",
+      "satisfaction": "Overall Satisfaction",
+      "effortLevel": "Effort Level",
+      "brandColor": "Brand Color",
+      "priority": "Priority",
+      "documentTitle": "Document Title",
+      "documentCategory": "Category",
+      "attachments": "Attachments",
+      "securityEmail": "Account Email",
+      "otp": "Verification Code"
     },
     "placeholders": {
       "fullName": "Enter full name",
       "email": "name@company.com",
-      "phone": "+1 555 000 0000"
+      "phone": "+1 555 000 0000",
+      "contactName": "Enter contact name",
+      "mobile": "(555) 000-0000",
+      "city": "Start typing a city",
+      "notes": "Add any additional notes...",
+      "jobTitle": "Select or type a job title",
+      "skills": "Select skills",
+      "topics": "Choose topics",
+      "documentTitle": "Enter document title",
+      "securityEmail": "account@company.com"
     },
     "actions": {
       "save": "Save",
       "reset": "Reset",
-      "cancel": "Cancel"
+      "cancel": "Cancel",
+      "submit": "Submit",
+      "upload": "Upload",
+      "verify": "Verify"
     },
     "messages": {
       "saved": "Form saved successfully.",
-      "reset": "Form has been reset."
+      "reset": "Form has been reset.",
+      "registrationSaved": "Registration form saved successfully.",
+      "contactSaved": "Contact form saved successfully.",
+      "applicationSaved": "Job application submitted successfully.",
+      "preferencesSaved": "Preferences saved successfully.",
+      "surveySaved": "Survey submitted successfully.",
+      "documentSaved": "Document upload queued successfully.",
+      "otpVerified": "Verification code accepted."
     }
   },
   "common": {

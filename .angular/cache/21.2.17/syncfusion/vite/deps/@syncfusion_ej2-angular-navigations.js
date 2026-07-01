@@ -39,7 +39,8 @@ import {
   VScroll,
   addScrolling,
   destroyScroll
-} from "./chunk-DWYT4EVT.js";
+} from "./chunk-GSHKZPEY.js";
+import "./chunk-SP2G7S6W.js";
 import {
   ArrayBase,
   ComplexBase,
@@ -47,7 +48,7 @@ import {
   ComponentMixins,
   Template,
   setValue
-} from "./chunk-PF5LVIBL.js";
+} from "./chunk-TT44W6RF.js";
 import "./chunk-BT7RVJDN.js";
 import {
   CommonModule

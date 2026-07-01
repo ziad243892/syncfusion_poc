@@ -656,6 +656,11 @@ License: "SEE LICENSE IN license"
 
 
 --------------------------------------------------------------------------------
+Package: @syncfusion/ej2-angular-buttons
+License: "SEE LICENSE IN license"
+
+
+--------------------------------------------------------------------------------
 Package: @syncfusion/ej2-angular-charts
 License: "SEE LICENSE IN license"
 

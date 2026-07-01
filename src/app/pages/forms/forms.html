@@ -8,108 +8,454 @@
     <p class="forms-page__feedback" role="status">{{ feedback() | translate }}</p>
   }
 
-  <form class="forms-page__form" (ngSubmit)="save()">
-    <section class="panel forms-page__section">
-      <h3 class="panel__title">{{ 'forms.sections.personal' | translate }}</h3>
-      <div class="forms-page__fields">
-        <label class="forms-page__field">
-          <span>{{ 'forms.fields.fullName' | translate }}</span>
-          <ejs-textbox
-            [(value)]="fullName"
-            [placeholder]="'forms.placeholders.fullName' | translate"
-            cssClass="e-outline"
-            floatLabelType="Auto"
+  <div class="forms-page__grid">
+    <!-- 1. Employee registration -->
+    <article class="panel forms-page__card">
+      <h3 class="panel__title">{{ 'forms.demos.registration.title' | translate }}</h3>
+      <p class="forms-page__desc">{{ 'forms.demos.registration.desc' | translate }}</p>
+
+      <form class="forms-page__form" (ngSubmit)="saveRegistration()">
+        <div class="forms-page__fields">
+          <label class="forms-page__field">
+            <span>{{ 'forms.fields.fullName' | translate }}</span>
+            <ejs-textbox
+              [(value)]="fullName"
+              [placeholder]="'forms.placeholders.fullName' | translate"
+              cssClass="e-outline"
+              [enableRtl]="isRtl()"
+            ></ejs-textbox>
+          </label>
+
+          <label class="forms-page__field">
+            <span>{{ 'forms.fields.email' | translate }}</span>
+            <ejs-textbox
+              [(value)]="email"
+              [placeholder]="'forms.placeholders.email' | translate"
+              cssClass="e-outline"
+              [enableRtl]="isRtl()"
+            ></ejs-textbox>
+          </label>
+
+          <label class="forms-page__field">
+            <span>{{ 'forms.fields.phone' | translate }}</span>
+            <ejs-textbox
+              [(value)]="phone"
+              [placeholder]="'forms.placeholders.phone' | translate"
+              cssClass="e-outline"
+              [enableRtl]="isRtl()"
+            ></ejs-textbox>
+          </label>
+
+          <label class="forms-page__field">
+            <span>{{ 'forms.fields.department' | translate }}</span>
+            <ejs-dropdownlist
+              [dataSource]="departmentOptions()"
+              [fields]="{ text: 'label', value: 'id' }"
+              [(value)]="department"
+              cssClass="e-outline"
+              popupHeight="220px"
+              [enableRtl]="isRtl()"
+            ></ejs-dropdownlist>
+          </label>
+
+          <label class="forms-page__field">
+            <span>{{ 'forms.fields.role' | translate }}</span>
+            <ejs-dropdownlist
+              [dataSource]="roleOptions()"
+              [fields]="{ text: 'label', value: 'id' }"
+              [(value)]="role"
+              cssClass="e-outline"
+              popupHeight="220px"
+              [enableRtl]="isRtl()"
+            ></ejs-dropdownlist>
+          </label>
+        </div>
+
+        <fieldset class="forms-page__fieldset">
+          <legend>{{ 'forms.fields.employmentType' | translate }}</legend>
+          <div class="forms-page__radios">
+            @for (option of employmentTypeOptions(); track option.id) {
+              <ejs-radiobutton
+                name="employmentType"
+                [value]="option.id"
+                [label]="option.label"
+                [(ngModel)]="employmentType"
+                [enableRtl]="isRtl()"
+              ></ejs-radiobutton>
+            }
+          </div>
+        </fieldset>
+
+        <div class="forms-page__checks">
+          <ejs-checkbox
+            [(checked)]="remoteWork"
+            [label]="'forms.fields.remote' | translate"
             [enableRtl]="isRtl()"
-          ></ejs-textbox>
+          ></ejs-checkbox>
+          <ejs-checkbox
+            [(checked)]="notifications"
+            [label]="'forms.fields.notifications' | translate"
+            [enableRtl]="isRtl()"
+          ></ejs-checkbox>
+        </div>
+
+        <div class="forms-page__actions">
+          <button ejs-button type="submit" [isPrimary]="true" [enableRtl]="isRtl()">
+            {{ 'forms.actions.save' | translate }}
+          </button>
+          <button ejs-button type="button" cssClass="e-outline" [enableRtl]="isRtl()" (click)="resetRegistration()">
+            {{ 'forms.actions.reset' | translate }}
+          </button>
+        </div>
+      </form>
+    </article>
+
+    <!-- 2. Contact & input types -->
+    <article class="panel forms-page__card">
+      <h3 class="panel__title">{{ 'forms.demos.contact.title' | translate }}</h3>
+      <p class="forms-page__desc">{{ 'forms.demos.contact.desc' | translate }}</p>
+
+      <form class="forms-page__form" (ngSubmit)="saveContact()">
+        <div class="forms-page__fields">
+          <label class="forms-page__field">
+            <span>{{ 'forms.fields.contactName' | translate }}</span>
+            <ejs-textbox
+              [(value)]="contactName"
+              [placeholder]="'forms.placeholders.contactName' | translate"
+              cssClass="e-outline"
+              [enableRtl]="isRtl()"
+            ></ejs-textbox>
+          </label>
+
+          <label class="forms-page__field">
+            <span>{{ 'forms.fields.mobile' | translate }}</span>
+            <ejs-maskedtextbox
+              mask="(000) 000-0000"
+              [(value)]="mobile"
+              [placeholder]="'forms.placeholders.mobile' | translate"
+              cssClass="e-outline"
+              [enableRtl]="isRtl()"
+            ></ejs-maskedtextbox>
+          </label>
+
+          <label class="forms-page__field">
+            <span>{{ 'forms.fields.budget' | translate }}</span>
+            <ejs-numerictextbox
+              [(value)]="budget"
+              format="c0"
+              [min]="0"
+              [step]="500"
+              cssClass="e-outline"
+              [enableRtl]="isRtl()"
+            ></ejs-numerictextbox>
+          </label>
+
+          <label class="forms-page__field">
+            <span>{{ 'forms.fields.city' | translate }}</span>
+            <ejs-autocomplete
+              [dataSource]="citySuggestions()"
+              [(value)]="city"
+              [placeholder]="'forms.placeholders.city' | translate"
+              cssClass="e-outline"
+              [enableRtl]="isRtl()"
+            ></ejs-autocomplete>
+          </label>
+        </div>
+
+        <label class="forms-page__field forms-page__field--full">
+          <span>{{ 'forms.fields.notes' | translate }}</span>
+          <ejs-textarea
+            [(value)]="notes"
+            [placeholder]="'forms.placeholders.notes' | translate"
+            cssClass="e-outline"
+            [rows]="3"
+            [enableRtl]="isRtl()"
+          ></ejs-textarea>
         </label>
 
-        <label class="forms-page__field">
-          <span>{{ 'forms.fields.email' | translate }}</span>
-          <ejs-textbox
-            [(value)]="email"
-            [placeholder]="'forms.placeholders.email' | translate"
-            cssClass="e-outline"
-            floatLabelType="Auto"
-            [enableRtl]="isRtl()"
-          ></ejs-textbox>
-        </label>
+        <div class="forms-page__actions">
+          <button ejs-button type="submit" [isPrimary]="true" [enableRtl]="isRtl()">
+            {{ 'forms.actions.save' | translate }}
+          </button>
+          <button ejs-button type="button" cssClass="e-outline" [enableRtl]="isRtl()" (click)="resetContact()">
+            {{ 'forms.actions.reset' | translate }}
+          </button>
+        </div>
+      </form>
+    </article>
+
+    <!-- 3. Job application -->
+    <article class="panel forms-page__card">
+      <h3 class="panel__title">{{ 'forms.demos.application.title' | translate }}</h3>
+      <p class="forms-page__desc">{{ 'forms.demos.application.desc' | translate }}</p>
+
+      <form class="forms-page__form" (ngSubmit)="saveApplication()">
+        <div class="forms-page__fields">
+          <label class="forms-page__field">
+            <span>{{ 'forms.fields.jobTitle' | translate }}</span>
+            <ejs-combobox
+              [dataSource]="roleOptions()"
+              [fields]="{ text: 'label', value: 'id' }"
+              [(value)]="jobTitle"
+              [allowCustom]="true"
+              [placeholder]="'forms.placeholders.jobTitle' | translate"
+              cssClass="e-outline"
+              [enableRtl]="isRtl()"
+            ></ejs-combobox>
+          </label>
+
+          <label class="forms-page__field">
+            <span>{{ 'forms.fields.experienceYears' | translate }}</span>
+            <ejs-numerictextbox
+              [(value)]="experienceYears"
+              format="n0"
+              [min]="0"
+              [max]="40"
+              [step]="1"
+              cssClass="e-outline"
+              [enableRtl]="isRtl()"
+            ></ejs-numerictextbox>
+          </label>
+
+          <label class="forms-page__field forms-page__field--full">
+            <span>{{ 'forms.fields.skills' | translate }}</span>
+            <ejs-multiselect
+              [dataSource]="skillOptions()"
+              [fields]="{ text: 'label', value: 'id' }"
+              [(value)]="selectedSkills"
+              mode="CheckBox"
+              [placeholder]="'forms.placeholders.skills' | translate"
+              cssClass="e-outline"
+              popupHeight="220px"
+              [enableRtl]="isRtl()"
+            ></ejs-multiselect>
+          </label>
+        </div>
 
         <label class="forms-page__field">
-          <span>{{ 'forms.fields.phone' | translate }}</span>
-          <ejs-textbox
-            [(value)]="phone"
-            [placeholder]="'forms.placeholders.phone' | translate"
-            cssClass="e-outline"
-            floatLabelType="Auto"
-            [enableRtl]="isRtl()"
-          ></ejs-textbox>
-        </label>
-      </div>
-    </section>
-
-    <section class="panel forms-page__section">
-      <h3 class="panel__title">{{ 'forms.sections.work' | translate }}</h3>
-      <div class="forms-page__fields">
-        <label class="forms-page__field">
-          <span>{{ 'forms.fields.department' | translate }}</span>
-          <ejs-dropdownlist
-            [dataSource]="departmentOptions()"
+          <span>{{ 'forms.fields.additionalSkills' | translate }}</span>
+          <ejs-listbox
+            [dataSource]="skillOptions()"
             [fields]="{ text: 'label', value: 'id' }"
-            [(value)]="department"
-            cssClass="e-outline"
-            floatLabelType="Auto"
-            popupHeight="220px"
+            [(value)]="listboxSkills"
+            height="160px"
+            [selectionSettings]="{ showCheckbox: true, mode: 'Multiple' }"
             [enableRtl]="isRtl()"
-          ></ejs-dropdownlist>
+          ></ejs-listbox>
         </label>
 
+        <div class="forms-page__actions">
+          <button ejs-button type="submit" [isPrimary]="true" [enableRtl]="isRtl()">
+            {{ 'forms.actions.submit' | translate }}
+          </button>
+          <button ejs-button type="button" cssClass="e-outline" [enableRtl]="isRtl()" (click)="resetApplication()">
+            {{ 'forms.actions.reset' | translate }}
+          </button>
+        </div>
+      </form>
+    </article>
+
+    <!-- 4. Preferences & toggles -->
+    <article class="panel forms-page__card">
+      <h3 class="panel__title">{{ 'forms.demos.preferences.title' | translate }}</h3>
+      <p class="forms-page__desc">{{ 'forms.demos.preferences.desc' | translate }}</p>
+
+      <form class="forms-page__form" (ngSubmit)="savePreferences()">
+        <div class="forms-page__switches">
+          <ejs-switch
+            [(checked)]="darkModePref"
+            [onLabel]="'forms.fields.darkModeOn' | translate"
+            [offLabel]="'forms.fields.darkModeOff' | translate"
+            [enableRtl]="isRtl()"
+          ></ejs-switch>
+
+          <ejs-checkbox
+            [(checked)]="marketingEmails"
+            [label]="'forms.fields.marketing' | translate"
+            [enableRtl]="isRtl()"
+          ></ejs-checkbox>
+        </div>
+
+        <fieldset class="forms-page__fieldset">
+          <legend>{{ 'forms.fields.contactMethod' | translate }}</legend>
+          <div class="forms-page__radios">
+            @for (option of contactMethodOptions(); track option.id) {
+              <ejs-radiobutton
+                name="contactMethod"
+                [value]="option.id"
+                [label]="option.label"
+                [(ngModel)]="contactMethod"
+                [enableRtl]="isRtl()"
+              ></ejs-radiobutton>
+            }
+          </div>
+        </fieldset>
+
         <label class="forms-page__field">
-          <span>{{ 'forms.fields.role' | translate }}</span>
-          <ejs-dropdownlist
-            [dataSource]="roleOptions()"
+          <span>{{ 'forms.fields.topics' | translate }}</span>
+          <ejs-multiselect
+            [dataSource]="topicOptions()"
             [fields]="{ text: 'label', value: 'id' }"
-            [(value)]="role"
+            [(value)]="selectedTopics"
+            mode="Box"
+            [placeholder]="'forms.placeholders.topics' | translate"
             cssClass="e-outline"
-            floatLabelType="Auto"
-            popupHeight="220px"
             [enableRtl]="isRtl()"
-          ></ejs-dropdownlist>
+          ></ejs-multiselect>
+        </label>
+
+        <div class="forms-page__actions">
+          <button ejs-button type="submit" [isPrimary]="true" [enableRtl]="isRtl()">
+            {{ 'forms.actions.save' | translate }}
+          </button>
+          <button ejs-button type="button" cssClass="e-outline" [enableRtl]="isRtl()" (click)="resetPreferences()">
+            {{ 'forms.actions.reset' | translate }}
+          </button>
+        </div>
+      </form>
+    </article>
+
+    <!-- 5. Survey -->
+    <article class="panel forms-page__card">
+      <h3 class="panel__title">{{ 'forms.demos.survey.title' | translate }}</h3>
+      <p class="forms-page__desc">{{ 'forms.demos.survey.desc' | translate }}</p>
+
+      <form class="forms-page__form" (ngSubmit)="saveSurvey()">
+        <label class="forms-page__field">
+          <span>{{ 'forms.fields.satisfaction' | translate }}</span>
+          <div ejs-rating [(value)]="satisfaction" [enableAnimation]="true" [enableRtl]="isRtl()"></div>
         </label>
 
         <label class="forms-page__field">
-          <span>{{ 'forms.fields.startDate' | translate }}</span>
-          <input
-            class="forms-page__date"
-            type="date"
-            name="startDate"
-            [(ngModel)]="startDate"
-          />
-        </label>
-      </div>
-    </section>
-
-    <section class="panel forms-page__section">
-      <h3 class="panel__title">{{ 'forms.sections.preferences' | translate }}</h3>
-      <div class="forms-page__checks">
-        <label class="forms-page__check">
-          <input type="checkbox" name="remoteWork" [(ngModel)]="remoteWork" />
-          <span>{{ 'forms.fields.remote' | translate }}</span>
+          <span>{{ 'forms.fields.effortLevel' | translate }}</span>
+          <ejs-slider
+            [(value)]="effortLevel"
+            type="MinRange"
+            [min]="0"
+            [max]="100"
+            [step]="5"
+            [tooltip]="{ isVisible: true, placement: 'Before' }"
+            [enableRtl]="isRtl()"
+          ></ejs-slider>
         </label>
 
-        <label class="forms-page__check">
-          <input type="checkbox" name="notifications" [(ngModel)]="notifications" />
-          <span>{{ 'forms.fields.notifications' | translate }}</span>
+        <label class="forms-page__field">
+          <span>{{ 'forms.fields.brandColor' | translate }}</span>
+          <input ejs-colorpicker type="color" [(value)]="brandColor" [enableRtl]="isRtl()" />
         </label>
-      </div>
-    </section>
 
-    <div class="forms-page__actions">
-      <button type="submit" class="e-btn e-primary">
-        {{ 'forms.actions.save' | translate }}
-      </button>
-      <button type="button" class="e-btn e-outline" (click)="reset()">
-        {{ 'forms.actions.reset' | translate }}
-      </button>
-    </div>
-  </form>
+        <fieldset class="forms-page__fieldset">
+          <legend>{{ 'forms.fields.priority' | translate }}</legend>
+          <div class="forms-page__radios">
+            @for (option of priorityOptions(); track option.id) {
+              <ejs-radiobutton
+                name="priority"
+                [value]="option.id"
+                [label]="option.label"
+                [(ngModel)]="priority"
+                [enableRtl]="isRtl()"
+              ></ejs-radiobutton>
+            }
+          </div>
+        </fieldset>
+
+        <div class="forms-page__actions">
+          <button ejs-button type="submit" [isPrimary]="true" [enableRtl]="isRtl()">
+            {{ 'forms.actions.submit' | translate }}
+          </button>
+          <button ejs-button type="button" cssClass="e-outline" [enableRtl]="isRtl()" (click)="resetSurvey()">
+            {{ 'forms.actions.reset' | translate }}
+          </button>
+        </div>
+      </form>
+    </article>
+
+    <!-- 6. Document upload -->
+    <article class="panel forms-page__card">
+      <h3 class="panel__title">{{ 'forms.demos.document.title' | translate }}</h3>
+      <p class="forms-page__desc">{{ 'forms.demos.document.desc' | translate }}</p>
+
+      <form class="forms-page__form" (ngSubmit)="saveDocument()">
+        <div class="forms-page__fields">
+          <label class="forms-page__field">
+            <span>{{ 'forms.fields.documentTitle' | translate }}</span>
+            <ejs-textbox
+              [(value)]="documentTitle"
+              [placeholder]="'forms.placeholders.documentTitle' | translate"
+              cssClass="e-outline"
+              [enableRtl]="isRtl()"
+            ></ejs-textbox>
+          </label>
+
+          <label class="forms-page__field">
+            <span>{{ 'forms.fields.documentCategory' | translate }}</span>
+            <ejs-dropdownlist
+              [dataSource]="documentCategories()"
+              [fields]="{ text: 'label', value: 'id' }"
+              [(value)]="documentCategory"
+              cssClass="e-outline"
+              [enableRtl]="isRtl()"
+            ></ejs-dropdownlist>
+          </label>
+        </div>
+
+        <label class="forms-page__field">
+          <span>{{ 'forms.fields.attachments' | translate }}</span>
+          <ejs-uploader
+            [autoUpload]="false"
+            [multiple]="true"
+            [allowedExtensions]="'.pdf,.doc,.docx,.png,.jpg,.jpeg'"
+            [enableRtl]="isRtl()"
+          ></ejs-uploader>
+        </label>
+
+        <div class="forms-page__actions">
+          <button ejs-button type="submit" [isPrimary]="true" [enableRtl]="isRtl()">
+            {{ 'forms.actions.upload' | translate }}
+          </button>
+          <button ejs-button type="button" cssClass="e-outline" [enableRtl]="isRtl()" (click)="resetDocument()">
+            {{ 'forms.actions.reset' | translate }}
+          </button>
+        </div>
+      </form>
+    </article>
+
+    <!-- 7. Security / OTP -->
+    <article class="panel forms-page__card">
+      <h3 class="panel__title">{{ 'forms.demos.security.title' | translate }}</h3>
+      <p class="forms-page__desc">{{ 'forms.demos.security.desc' | translate }}</p>
+
+      <form class="forms-page__form" (ngSubmit)="verifyOtp()">
+        <label class="forms-page__field">
+          <span>{{ 'forms.fields.securityEmail' | translate }}</span>
+          <ejs-textbox
+            [(value)]="securityEmail"
+            [placeholder]="'forms.placeholders.securityEmail' | translate"
+            cssClass="e-outline"
+            [enableRtl]="isRtl()"
+          ></ejs-textbox>
+        </label>
+
+        <label class="forms-page__field">
+          <span>{{ 'forms.fields.otp' | translate }}</span>
+          <div
+            ejs-otpinput
+            [length]="6"
+            [(value)]="otpValue"
+            stylingMode="outlined"
+            [enableRtl]="isRtl()"
+          ></div>
+        </label>
+
+        <div class="forms-page__actions">
+          <button ejs-button type="submit" [isPrimary]="true" [enableRtl]="isRtl()">
+            {{ 'forms.actions.verify' | translate }}
+          </button>
+          <button ejs-button type="button" cssClass="e-outline" [enableRtl]="isRtl()" (click)="resetSecurity()">
+            {{ 'forms.actions.reset' | translate }}
+          </button>
+        </div>
+      </form>
+    </article>
+  </div>
 </section>

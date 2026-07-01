@@ -91,11 +91,36 @@
   },
   "forms": {
     "title": "مكوّنات النماذج",
-    "subtitle": "حقول الإدخال والقوائم والأزرار متوافقة مع نظام التصميم.",
-    "sections": {
-      "personal": "المعلومات الشخصية",
-      "work": "تفاصيل العمل",
-      "preferences": "التفضيلات"
+    "subtitle": "عرض كامل لعناصر نماذج Syncfusion — نص، اختيار، مفاتيح، تقييم، رفع ملفات، والمزيد.",
+    "demos": {
+      "registration": {
+        "title": "تسجيل موظف",
+        "desc": "حقول نصية وقوائم منسدلة وأزرار اختيار ومربعات تحديد."
+      },
+      "contact": {
+        "title": "نموذج التواصل",
+        "desc": "نص مقنّع ورقمي وإكمال تلقائي ومنطقة نص."
+      },
+      "application": {
+        "title": "طلب وظيفة",
+        "desc": "ComboBox وMultiSelect وListBox لاختيار المهارات."
+      },
+      "preferences": {
+        "title": "تفضيلات الإشعارات",
+        "desc": "مفتاح تبديل ومربعات تحديد ومجموعة اختيار ووسوم."
+      },
+      "survey": {
+        "title": "استبيان الملاحظات",
+        "desc": "تقييم وشريط تمرير ومنتقي ألوان وأولوية."
+      },
+      "document": {
+        "title": "رفع مستند",
+        "desc": "حقل نصي وقائمة منسدلة ورفع ملفات."
+      },
+      "security": {
+        "title": "التحقق الأمني",
+        "desc": "بريد إلكتروني ورمز OTP للتحقق."
+      }
     },
     "fields": {
       "fullName": "الاسم الكامل",
@@ -103,23 +128,65 @@
       "phone": "رقم الهاتف",
       "department": "القسم",
       "role": "المسمى الوظيفي",
-      "startDate": "تاريخ البدء",
+      "employmentType": "نوع التوظيف",
       "remote": "تفعيل العمل عن بُعد",
-      "notifications": "إشعارات البريد"
+      "notifications": "إشعارات البريد",
+      "contactName": "اسم جهة الاتصال",
+      "mobile": "رقم الجوال",
+      "budget": "ميزانية المشروع",
+      "city": "المدينة",
+      "notes": "ملاحظات",
+      "jobTitle": "المسمى الوظيفي",
+      "experienceYears": "سنوات الخبرة",
+      "skills": "المهارات الأساسية",
+      "additionalSkills": "مهارات إضافية",
+      "darkModeOn": "داكن",
+      "darkModeOff": "فاتح",
+      "marketing": "استلام رسائل تسويقية",
+      "contactMethod": "طريقة التواصل المفضلة",
+      "topics": "مواضيع الإشعارات",
+      "satisfaction": "الرضا العام",
+      "effortLevel": "مستوى الجهد",
+      "brandColor": "لون العلامة",
+      "priority": "الأولوية",
+      "documentTitle": "عنوان المستند",
+      "documentCategory": "الفئة",
+      "attachments": "المرفقات",
+      "securityEmail": "بريد الحساب",
+      "otp": "رمز التحقق"
     },
     "placeholders": {
       "fullName": "أدخل الاسم الكامل",
       "email": "name@company.com",
-      "phone": "+966 5XX XXX XXX"
+      "phone": "+966 5XX XXX XXX",
+      "contactName": "أدخل اسم جهة الاتصال",
+      "mobile": "(555) 000-0000",
+      "city": "ابدأ بكتابة اسم المدينة",
+      "notes": "أضف أي ملاحظات إضافية...",
+      "jobTitle": "اختر أو اكتب المسمى الوظيفي",
+      "skills": "اختر المهارات",
+      "topics": "اختر المواضيع",
+      "documentTitle": "أدخل عنوان المستند",
+      "securityEmail": "account@company.com"
     },
     "actions": {
       "save": "حفظ",
       "reset": "إعادة تعيين",
-      "cancel": "إلغاء"
+      "cancel": "إلغاء",
+      "submit": "إرسال",
+      "upload": "رفع",
+      "verify": "تحقق"
     },
     "messages": {
       "saved": "تم حفظ النموذج بنجاح.",
-      "reset": "تمت إعادة تعيين النموذج."
+      "reset": "تمت إعادة تعيين النموذج.",
+      "registrationSaved": "تم حفظ نموذج التسجيل بنجاح.",
+      "contactSaved": "تم حفظ نموذج التواصل بنجاح.",
+      "applicationSaved": "تم إرسال طلب الوظيفة بنجاح.",
+      "preferencesSaved": "تم حفظ التفضيلات بنجاح.",
+      "surveySaved": "تم إرسال الاستبيان بنجاح.",
+      "documentSaved": "تمت جدولة رفع المستند بنجاح.",
+      "otpVerified": "تم قبول رمز التحقق."
     }
   },
   "common": {
