@@ -1,0 +1,179 @@
+<section class="page analysis-page">
+  <header class="page__header">
+    <h2 class="page__title">{{ 'analysis.title' | translate }}</h2>
+    <p class="page__subtitle">{{ 'analysis.subtitle' | translate }}</p>
+  </header>
+
+  <div class="card-grid">
+    @for (kpi of kpis; track kpi.labelKey) {
+      <article class="stat-card">
+        <p class="stat-card__label">{{ kpi.labelKey | translate }}</p>
+        <p class="stat-card__value">{{ kpi.value }}</p>
+        <p class="analysis-page__trend">{{ kpi.trend }}</p>
+      </article>
+    }
+  </div>
+
+  <div class="analysis-page__chart-grid">
+    <article class="panel analysis-page__chart-panel">
+      <h3 class="panel__title">{{ 'analysis.charts.line' | translate }}</h3>
+      <ejs-chart
+        id="analysis-line-chart"
+        [theme]="chartTheme()"
+        [primaryXAxis]="categoryAxis"
+        [primaryYAxis]="numericYAxis"
+        [legendSettings]="legend"
+        [tooltip]="tooltip"
+        height="280px"
+      >
+        <e-series-collection>
+          <e-series
+            [dataSource]="monthlyRevenue"
+            type="Line"
+            xName="month"
+            yName="revenue"
+            name="Revenue"
+            width="2"
+          ></e-series>
+          <e-series
+            [dataSource]="monthlyRevenue"
+            type="Line"
+            xName="month"
+            yName="target"
+            name="Target"
+            width="2"
+            dashArray="5,5"
+          ></e-series>
+        </e-series-collection>
+      </ejs-chart>
+    </article>
+
+    <article class="panel analysis-page__chart-panel">
+      <h3 class="panel__title">{{ 'analysis.charts.area' | translate }}</h3>
+      <ejs-chart
+        id="analysis-area-chart"
+        [theme]="chartTheme()"
+        [primaryXAxis]="categoryAxis"
+        [primaryYAxis]="numericYAxis"
+        [legendSettings]="legend"
+        [tooltip]="tooltip"
+        height="280px"
+      >
+        <e-series-collection>
+          <e-series
+            [dataSource]="monthlyRevenue"
+            type="Area"
+            xName="month"
+            yName="revenue"
+            name="Revenue"
+            opacity="0.6"
+          ></e-series>
+        </e-series-collection>
+      </ejs-chart>
+    </article>
+
+    <article class="panel analysis-page__chart-panel">
+      <h3 class="panel__title">{{ 'analysis.charts.bar' | translate }}</h3>
+      <ejs-chart
+        id="analysis-bar-chart"
+        [theme]="chartTheme()"
+        [primaryXAxis]="categoryAxis"
+        [primaryYAxis]="{ labelFormat: '{value}' }"
+        [legendSettings]="{ visible: false }"
+        [tooltip]="tooltip"
+        height="280px"
+      >
+        <e-series-collection>
+          <e-series
+            [dataSource]="departmentHeadcount"
+            type="Column"
+            xName="department"
+            yName="headcount"
+            name="Headcount"
+            columnSpacing="0.2"
+          ></e-series>
+        </e-series-collection>
+      </ejs-chart>
+    </article>
+
+    <article class="panel analysis-page__chart-panel">
+      <h3 class="panel__title">{{ 'analysis.charts.stock' | translate }}</h3>
+      <ejs-stockchart
+        id="analysis-stock-chart"
+        [theme]="chartTheme()"
+        [primaryXAxis]="stockPrimaryXAxis"
+        [primaryYAxis]="stockPrimaryYAxis"
+        [tooltip]="tooltip"
+        height="280px"
+      >
+        <e-stockchart-series-collection>
+          <e-stockchart-series
+            [dataSource]="stockPrices"
+            type="Candle"
+            xName="date"
+            high="high"
+            low="low"
+            open="open"
+            close="close"
+            name="EPRT"
+          ></e-stockchart-series>
+        </e-stockchart-series-collection>
+      </ejs-stockchart>
+    </article>
+
+    <article class="panel analysis-page__chart-panel">
+      <h3 class="panel__title">{{ 'analysis.charts.scatterBubble' | translate }}</h3>
+      <ejs-chart
+        id="analysis-scatter-chart"
+        [theme]="chartTheme()"
+        [primaryXAxis]="{ title: 'Years of Experience', minimum: 0, maximum: 12 }"
+        [primaryYAxis]="{ title: 'Performance Score', minimum: 55, maximum: 100 }"
+        [legendSettings]="legend"
+        [tooltip]="tooltip"
+        height="280px"
+      >
+        <e-series-collection>
+          <e-series
+            [dataSource]="performanceData"
+            type="Scatter"
+            xName="experience"
+            yName="score"
+            name="Performance"
+            [marker]="scatterMarker"
+          ></e-series>
+          <e-series
+            [dataSource]="performanceData"
+            type="Bubble"
+            xName="experience"
+            yName="score"
+            size="teamSize"
+            name="Team Size"
+            [opacity]="bubbleOpacity"
+          ></e-series>
+        </e-series-collection>
+      </ejs-chart>
+    </article>
+
+    <article class="panel analysis-page__chart-panel">
+      <h3 class="panel__title">{{ 'analysis.charts.accumulation' | translate }}</h3>
+      <ejs-accumulationchart
+        id="analysis-pie-chart"
+        [theme]="chartTheme()"
+        [legendSettings]="accumulationLegend"
+        [tooltip]="accumulationTooltip"
+        height="280px"
+      >
+        <e-accumulation-series-collection>
+          <e-accumulation-series
+            [dataSource]="marketShare"
+            xName="segment"
+            yName="share"
+            type="Pie"
+            [dataLabel]="accumulationDataLabel"
+            innerRadius="40%"
+          ></e-accumulation-series>
+        </e-accumulation-series-collection>
+      </ejs-accumulationchart>
+    </article>
+  </div>
+</section>

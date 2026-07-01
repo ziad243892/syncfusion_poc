@@ -8,6 +8,7 @@
     "employees": "Employees",
     "forms": "Forms",
     "smartTextarea": "Smart TextArea",
+    "analysis": "Analysis",
     "home": "Home"
   },
   "header": {
@@ -69,6 +70,24 @@
     "rolePlaceholder": "Select a role",
     "placeholder": "Enter your queries here",
     "tip": "Type \"To investigate\" with the GitHub maintainer role selected, then press Tab to accept the inline suggestion."
+  },
+  "analysis": {
+    "title": "Analysis Dashboard",
+    "subtitle": "Interactive charts overview — line, area, bar, stock, scatter, bubble, and accumulation.",
+    "kpis": {
+      "revenue": "Annual Revenue",
+      "users": "Active Users",
+      "conversion": "Conversion Rate",
+      "retention": "Retention Rate"
+    },
+    "charts": {
+      "line": "Line Chart — Revenue vs Target",
+      "area": "Area Chart — Revenue Trend",
+      "bar": "Bar Chart — Department Headcount",
+      "stock": "Stock Chart — Candlestick",
+      "scatterBubble": "Scatter & Bubble — Performance",
+      "accumulation": "Accumulation Chart — Market Share"
+    }
   },
   "forms": {
     "title": "Form Components",

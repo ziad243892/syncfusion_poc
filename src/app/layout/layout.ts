@@ -29,6 +29,7 @@ export class Layout {
     { path: '/employees', icon: 'groups', labelKey: 'nav.employees' },
     { path: '/forms', icon: 'description', labelKey: 'nav.forms' },
     { path: '/smart-textarea', icon: 'auto_awesome', labelKey: 'nav.smartTextarea' },
+    { path: '/analysis', icon: 'analytics', labelKey: 'nav.analysis' },
   ];
 
   protected readonly isRtl = computed(() => this.theme.direction() === 'rtl');

@@ -1,0 +1,21 @@
+.analysis-page__trend {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgb(6, 95, 70);
+}
+
+.analysis-page__chart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.analysis-page__chart-panel {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  .analysis-page__chart-grid {
+    grid-template-columns: 1fr;
+  }
+}
