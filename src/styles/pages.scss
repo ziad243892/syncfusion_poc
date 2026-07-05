@@ -129,3 +129,28 @@
   border-color: var(--app-primary);
   box-shadow: 0 0 0 1px var(--app-primary);
 }
+
+// Query Builder uses Material line/underline fields (not outlined boxes).
+.e-query-builder {
+  .e-input-group,
+  .e-float-input,
+  .e-input-group.e-control-wrapper,
+  .e-float-input.e-control-wrapper,
+  .e-ddl.e-input-group,
+  .e-date-wrapper.e-input-group,
+  .e-date-range-wrapper.e-input-group,
+  .e-time-wrapper.e-input-group,
+  .e-multiselect.e-input-group,
+  .e-combobox.e-input-group {
+    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .e-input-group.e-input-focus,
+  .e-float-input.e-input-focus,
+  .e-input-group.e-control-wrapper.e-input-focus,
+  .e-float-input.e-control-wrapper.e-input-focus {
+    box-shadow: none;
+  }
+}

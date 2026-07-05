@@ -10,6 +10,7 @@
     "smartTextarea": "Smart TextArea",
     "analysis": "Analysis",
     "treegrid": "Tree Grid",
+    "queryBuilder": "Query Builder",
     "home": "Home"
   },
   "header": {
@@ -61,6 +62,33 @@
       "active": "Active",
       "leave": "On Leave",
       "remote": "Remote"
+    }
+  },
+  "queryBuilder": {
+    "title": "Query Builder",
+    "subtitle": "Build filters with natural language and see them applied to a live grid.",
+    "hint": "This demo uses a local mock AI handler. Connect Azure OpenAI or Gemini for production natural-language querying.",
+    "instructAi": "Instruct AI",
+    "promptAria": "Natural language query input",
+    "promptPlaceholder": "find all users who live in los angeles and have over 1000 credits",
+    "generate": "Generate Query",
+    "resultsTitle": "Results from your AI generated query",
+    "tip": "Click Generate Query to translate the prompt into Query Builder rules and filter the grid below.",
+    "tabs": {
+      "naturalLanguage": "Natural Language Query",
+      "builderUi": "Query Builder UI"
+    },
+    "columns": {
+      "id": "ID",
+      "name": "Name",
+      "email": "Email",
+      "address": "Address",
+      "city": "City",
+      "state": "State",
+      "credits": "Credits"
+    },
+    "errors": {
+      "generic": "Unable to generate a query from the prompt."
     }
   },
   "smartTextarea": {

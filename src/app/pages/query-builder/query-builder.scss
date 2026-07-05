@@ -1,0 +1,73 @@
+.query-builder-page__demo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.query-builder-page__hint,
+.query-builder-page__tip {
+  margin: 0;
+  color: var(--app-text-muted);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.query-builder-page__container {
+  border: 1px solid var(--app-border);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.query-builder-page__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.query-builder-page__prompt {
+  padding: 1rem;
+}
+
+.query-builder-page__textarea {
+  width: 100%;
+  min-height: 6.5rem;
+  padding: 0.75rem;
+  border: 1px solid var(--app-border);
+  border-radius: 0.5rem;
+  resize: vertical;
+  font: inherit;
+  color: var(--app-text);
+  background: var(--app-surface);
+  box-sizing: border-box;
+}
+
+.query-builder-page__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem;
+  border-block-start: 1px solid var(--app-border);
+}
+
+.query-builder-page__error {
+  margin: 0;
+  color: #b42318;
+  font-size: 0.875rem;
+}
+
+.query-builder-page__results {
+  padding: 1rem;
+  border-block-start: 1px solid var(--app-border);
+}
+
+:host ::ng-deep .query-builder-page__container {
+  .e-tab .e-content {
+    padding: 1rem;
+  }
+
+  #query-builder-results-grid .e-content {
+    height: 320px !important;
+  }
+}

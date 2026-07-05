@@ -1,0 +1,123 @@
+<section class="page query-builder-page">
+  <header class="page__header">
+    <h2 class="page__title">{{ 'queryBuilder.title' | translate }}</h2>
+    <p class="page__subtitle">{{ 'queryBuilder.subtitle' | translate }}</p>
+  </header>
+
+  <section class="panel query-builder-page__demo">
+    <p class="query-builder-page__hint">{{ 'queryBuilder.hint' | translate }}</p>
+
+    <div class="query-builder-page__container">
+      <ejs-tab id="query-builder-tabs" #queryTabs (created)="onTabsCreated()">
+        <e-tabitems>
+          <e-tabitem [header]="tabHeaders[0]">
+            <ng-template #content>
+              <div class="query-builder-page__prompt">
+                <span class="query-builder-page__label">{{ 'queryBuilder.instructAi' | translate }}</span>
+                <textarea
+                  id="query-builder-nl-input"
+                  class="query-builder-page__textarea"
+                  [attr.aria-label]="'queryBuilder.promptAria' | translate"
+                  [placeholder]="'queryBuilder.promptPlaceholder' | translate"
+                  [(ngModel)]="nlQueryText"
+                ></textarea>
+              </div>
+            </ng-template>
+          </e-tabitem>
+
+          <e-tabitem [header]="tabHeaders[1]">
+            <ng-template #content>
+              <ejs-querybuilder
+                #queryBuilder
+                id="query-builder"
+                [dataSource]="users"
+                [enableRtl]="isRtl()"
+              >
+                @for (column of columns; track column.field) {
+                  <e-column
+                    [field]="column.field"
+                    [label]="column.label"
+                    [type]="column.type"
+                  ></e-column>
+                }
+              </ejs-querybuilder>
+            </ng-template>
+          </e-tabitem>
+        </e-tabitems>
+      </ejs-tab>
+
+      <div class="query-builder-page__actions">
+        <button
+          ejs-button
+          id="query-builder-generate"
+          cssClass="e-primary"
+          type="button"
+          (click)="generateQuery()"
+        >
+          {{ 'queryBuilder.generate' | translate }}
+        </button>
+
+        @if (queryError) {
+          <p class="query-builder-page__error" role="alert">{{ queryError }}</p>
+        }
+      </div>
+
+      <div class="query-builder-page__results">
+        <span class="query-builder-page__label">{{ 'queryBuilder.resultsTitle' | translate }}</span>
+        <ejs-grid
+          id="query-builder-results-grid"
+          #resultsGrid
+          [dataSource]="users"
+          [allowSelection]="true"
+          [allowPaging]="true"
+          [pageSettings]="pageSettings"
+          [enableRtl]="isRtl()"
+          width="100%"
+          (created)="onGridCreated()"
+        >
+          <e-columns>
+            <e-column
+              field="id"
+              [headerText]="'queryBuilder.columns.id' | translate"
+              width="100"
+              textAlign="Right"
+            ></e-column>
+            <e-column
+              field="name"
+              [headerText]="'queryBuilder.columns.name' | translate"
+              width="140"
+            ></e-column>
+            <e-column
+              field="email"
+              [headerText]="'queryBuilder.columns.email' | translate"
+              width="180"
+            ></e-column>
+            <e-column
+              field="address"
+              [headerText]="'queryBuilder.columns.address' | translate"
+              width="160"
+            ></e-column>
+            <e-column
+              field="city"
+              [headerText]="'queryBuilder.columns.city' | translate"
+              width="130"
+            ></e-column>
+            <e-column
+              field="state"
+              [headerText]="'queryBuilder.columns.state' | translate"
+              width="130"
+            ></e-column>
+            <e-column
+              field="credits"
+              [headerText]="'queryBuilder.columns.credits' | translate"
+              width="110"
+              textAlign="Right"
+            ></e-column>
+          </e-columns>
+        </ejs-grid>
+      </div>
+    </div>
+
+    <p class="query-builder-page__tip">{{ 'queryBuilder.tip' | translate }}</p>
+  </section>
+</section>

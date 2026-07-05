@@ -6,6 +6,7 @@ import { FormsPage } from './pages/forms/forms';
 import { AnalysisPage } from './pages/analysis/analysis';
 import { SmartTextareaPage } from './pages/smart-textarea/smart-textarea';
 import { TreegridPage } from './pages/treegrid/treegrid';
+import { QueryBuilderPage } from './pages/query-builder/query-builder';
 
 export const routes: Routes = [
   {
@@ -19,6 +20,7 @@ export const routes: Routes = [
       { path: 'smart-textarea', component: SmartTextareaPage },
       { path: 'analysis', component: AnalysisPage },
       { path: 'treegrid', component: TreegridPage },
+      { path: 'query-builder', component: QueryBuilderPage },
     ],
   },
   { path: '**', redirectTo: 'dashboard' },
