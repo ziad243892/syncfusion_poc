@@ -1,4 +1,4 @@
-<section class="grid-overview control-section">
+<section class="grid-overview">
   <div class="grid-overview__toolbar">
     <div class="grid-overview__toolbar-start">
       <label class="grid-overview__search">
@@ -177,23 +177,14 @@
 
 <ng-template #statusTemplate let-data>
   <div
-    class="statustemp"
-    [class.e-activecolor]="data.StatusKey === 'active'"
-    [class.e-inactivecolor]="data.StatusKey === 'inactive'"
+    class="grid-overview__status"
+    [class.grid-overview__status--active]="data.StatusKey === 'active'"
+    [class.grid-overview__status--inactive]="data.StatusKey === 'inactive'"
   >
-    <span
-      class="material-icons grid-overview__status-icon"
-      aria-hidden="true"
-    >
+    <span class="material-icons grid-overview__status-icon" aria-hidden="true">
       {{ statusIcon(data.StatusKey) }}
     </span>
-    <span
-      class="statustxt"
-      [class.e-activecolor]="data.StatusKey === 'active'"
-      [class.e-inactivecolor]="data.StatusKey === 'inactive'"
-    >
-      {{ data.Status }}
-    </span>
+    <span class="grid-overview__status-text">{{ data.Status }}</span>
   </div>
 </ng-template>
 
@@ -229,13 +220,13 @@
 <ng-template #progressTemplate let-data>
   <div class="grid-overview__software">
     <span class="material-icons grid-overview__cell-icon" aria-hidden="true">memory</span>
-    <div class="pbar">
+    <div class="grid-overview__progress">
       <div
-        class="bar"
-        [class.progressdisable]="data.StatusKey === 'inactive'"
+        class="grid-overview__progress-bar"
+        [class.grid-overview__progress-bar--disabled]="data.StatusKey === 'inactive'"
         [style.width.%]="softwareValue(data)"
       >
-        <div class="barlabel">{{ softwareValue(data) }}%</div>
+        <div class="grid-overview__progress-label">{{ softwareValue(data) }}%</div>
       </div>
     </div>
   </div>

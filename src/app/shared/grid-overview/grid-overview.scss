@@ -1,43 +1,284 @@
-.grid-overview__toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding-block-end: 0.75rem;
+@use '../../../styles/material3' as m3;
+
+.grid-overview {
+  &__toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block-end: 0.75rem;
+  }
+
+  &__toolbar-start {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex: 1 1 14rem;
+    max-width: 20rem;
+
+    ejs-textbox {
+      flex: 1;
+    }
+  }
+
+  &__load-time {
+    font-size: 0.875rem;
+    color: var(--app-text-muted);
+    white-space: nowrap;
+  }
+
+  &__grid-shell {
+    position: relative;
+    min-height: 400px;
+  }
+
+  &__skeleton {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding: 0.75rem;
+    border: 1px solid var(--app-border);
+    border-radius: var(--app-radius);
+    background: var(--app-surface);
+    overflow: hidden;
+
+    &--blocking {
+      z-index: 3;
+    }
+  }
+
+  &__skeleton-header,
+  &__skeleton-row {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  &__skeleton-header {
+    padding-block-end: 0.35rem;
+    border-block-end: 1px solid var(--app-border);
+  }
+
+  &__skeleton-row {
+    min-height: 38px;
+  }
+
+  &__skeleton-block {
+    display: block;
+    height: 0.75rem;
+    border-radius: m3.$checkbox-small-radius;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--app-border) 70%, transparent) 25%,
+      color-mix(in srgb, var(--app-border) 35%, transparent) 50%,
+      color-mix(in srgb, var(--app-border) 70%, transparent) 75%
+    );
+    background-size: 200% 100%;
+    animation: grid-overview-shimmer 1.2s ease-in-out infinite;
+
+    &--header {
+      height: 0.85rem;
+      width: 70%;
+    }
+  }
+
+  &__employee {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  &__employee-name {
+    line-height: 1;
+  }
+
+  &__avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 27px;
+    height: 27px;
+    border-radius: 50%;
+    font-size: 16px;
+    color: rgb(m3.$on-primary);
+    flex-shrink: 0;
+
+    &--male {
+      background-color: rgb(m3.$primary);
+    }
+
+    &--female {
+      background-color: rgb(m3.$tertiary);
+    }
+  }
+
+  &__cell-icon {
+    font-size: 16px;
+    color: rgb(m3.$primary);
+    flex-shrink: 0;
+  }
+
+  &__location {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  &__status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.1rem;
+    position: relative;
+    height: 19px;
+    border-radius: m3.$chip-default-radius;
+    text-align: center;
+    padding-inline: 0.25rem;
+
+    &--active {
+      background-color: rgb(m3.$success-container);
+      min-width: 57px;
+
+      .grid-overview__status-icon,
+      .grid-overview__status-text {
+        color: rgb(m3.$success);
+      }
+    }
+
+    &--inactive {
+      background-color: rgb(m3.$error-container);
+      min-width: 64px;
+
+      .grid-overview__status-icon,
+      .grid-overview__status-text {
+        color: rgb(m3.$error);
+      }
+    }
+  }
+
+  &__status-icon {
+    font-size: 13px;
+    margin-inline-end: 0.15rem;
+    vertical-align: middle;
+  }
+
+  &__status-text {
+    position: relative;
+    top: 0;
+  }
+
+  &__trust {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  &__trust-icon {
+    font-size: 18px;
+
+    &--perfect {
+      color: rgb(m3.$success);
+    }
+
+    &--sufficient {
+      color: rgb(m3.$warning);
+    }
+
+    &--insufficient {
+      color: rgb(m3.$error);
+    }
+  }
+
+  &__trust-text {
+    margin-inline-start: 0.1rem;
+  }
+
+  &__rating {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.05rem;
+  }
+
+  &__star {
+    font-size: 14px;
+    color: rgb(m3.$outline-variant);
+
+    &--filled {
+      color: rgb(m3.$warning);
+    }
+  }
+
+  &__software {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  &__progress {
+    position: relative;
+    height: 18px;
+    width: 10em;
+    text-align: start;
+    background-color: var(--app-surface);
+  }
+
+  &__progress-bar {
+    position: absolute;
+    height: 100%;
+    background-color: rgb(m3.$success);
+
+    &--disabled {
+      background-color: rgb(m3.$error);
+    }
+  }
+
+  &__progress-label {
+    position: relative;
+    left: 10px;
+    line-height: 18px;
+    font-size: 11px;
+    color: rgb(m3.$on-primary);
+  }
+
+  @media (max-width: 370px) {
+    &__toolbar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__toolbar-start {
+      width: 100%;
+    }
+
+    &__search {
+      max-width: none;
+    }
+  }
 }
 
-.grid-overview__toolbar-start {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.75rem;
-  flex: 1;
+@keyframes grid-overview-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
 }
 
-.grid-overview__search {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  flex: 1 1 14rem;
-  max-width: 20rem;
-}
-
-.grid-overview__search-icon {
-  font-size: 1.25rem;
-  color: var(--app-text-muted);
-  flex-shrink: 0;
-}
-
-.grid-overview__search ejs-textbox {
-  flex: 1;
-}
-
-.grid-overview__grid-shell {
-  position: relative;
-  min-height: 400px;
-}
-
-// Clickable sortable headers with visible Material Icons sort indicators.
+// Syncfusion grid overrides — sort headers, shimmer masks, scroll loading.
 :host ::ng-deep .grid-overview__grid {
   .e-headercelldiv {
     cursor: pointer;
@@ -54,73 +295,7 @@
     opacity: 1;
     visibility: visible;
   }
-}
 
-.grid-overview__skeleton--blocking {
-  z-index: 3;
-}
-
-.grid-overview__skeleton {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  padding: 0.75rem;
-  border: 1px solid var(--app-border);
-  border-radius: var(--app-radius, 0.5rem);
-  background: var(--app-surface, #fff);
-  overflow: hidden;
-}
-
-.grid-overview__skeleton-header,
-.grid-overview__skeleton-row {
-  display: grid;
-  grid-template-columns: repeat(8, minmax(0, 1fr));
-  gap: 0.75rem;
-  align-items: center;
-}
-
-.grid-overview__skeleton-header {
-  padding-block-end: 0.35rem;
-  border-block-end: 1px solid var(--app-border);
-}
-
-.grid-overview__skeleton-row {
-  min-height: 38px;
-}
-
-.grid-overview__skeleton-block {
-  display: block;
-  height: 0.75rem;
-  border-radius: 0.25rem;
-  background: linear-gradient(
-    90deg,
-    color-mix(in srgb, var(--app-border) 70%, transparent) 25%,
-    color-mix(in srgb, var(--app-border) 35%, transparent) 50%,
-    color-mix(in srgb, var(--app-border) 70%, transparent) 75%
-  );
-  background-size: 200% 100%;
-  animation: grid-overview-shimmer 1.2s ease-in-out infinite;
-}
-
-.grid-overview__skeleton-block--header {
-  height: 0.85rem;
-  width: 70%;
-}
-
-@keyframes grid-overview-shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-
-  100% {
-    background-position: -200% 0;
-  }
-}
-
-:host ::ng-deep .grid-overview__grid {
   .e-mask.e-skeleton,
   .e-masked-cell .e-mask.e-skeleton {
     opacity: 1;
@@ -134,189 +309,5 @@
 
   &.grid-overview__grid--scroll-loading .e-content {
     scroll-behavior: auto;
-  }
-}
-
-.grid-overview__load-time {
-  font-size: 0.875rem;
-  color: var(--app-text-muted);
-  white-space: nowrap;
-}
-
-.grid-overview__employee {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.grid-overview__employee-name {
-  line-height: 1;
-}
-
-.grid-overview__avatar {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 27px;
-  height: 27px;
-  border-radius: 50%;
-  font-size: 16px;
-  color: #fff;
-  flex-shrink: 0;
-}
-
-.grid-overview__avatar--male {
-  background-color: var(--color-sf-primary, #6750a4);
-}
-
-.grid-overview__avatar--female {
-  background-color: #db2777;
-}
-
-.grid-overview__cell-icon {
-  font-size: 16px;
-  color: var(--color-sf-primary, #6750a4);
-  flex-shrink: 0;
-}
-
-.grid-overview__location {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.grid-overview__trust {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.grid-overview__trust-icon {
-  font-size: 18px;
-}
-
-.grid-overview__trust-icon--perfect {
-  color: #16a34a;
-}
-
-.grid-overview__trust-icon--sufficient {
-  color: #ca8a04;
-}
-
-.grid-overview__trust-icon--insufficient {
-  color: #dc2626;
-}
-
-.grid-overview__trust-text {
-  margin-inline-start: 0.1rem;
-}
-
-.grid-overview__rating {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.05rem;
-}
-
-.grid-overview__star {
-  font-size: 14px;
-  color: #d1d5db;
-}
-
-.grid-overview__star--filled {
-  color: #f59e0b;
-}
-
-.grid-overview__software {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-
-.grid-overview__status-icon {
-  font-size: 13px;
-  margin-inline-end: 0.15rem;
-  vertical-align: middle;
-}
-
-.statustemp.e-activecolor .grid-overview__status-icon {
-  color: #0c0;
-}
-
-.statustemp.e-inactivecolor .grid-overview__status-icon {
-  color: #e60000;
-}
-
-.statustemp {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.1rem;
-  position: relative;
-  height: 19px;
-  border-radius: 5px;
-  text-align: center;
-  padding-inline: 0.25rem;
-}
-
-.statustemp.e-activecolor {
-  background-color: #ccffcc;
-  min-width: 57px;
-}
-
-.statustemp.e-inactivecolor {
-  background-color: #ffd7cc;
-  min-width: 64px;
-}
-
-.statustxt.e-activecolor {
-  color: #0c0;
-  position: relative;
-  top: 0;
-}
-
-.statustxt.e-inactivecolor {
-  color: #e60000;
-  position: relative;
-  top: 0;
-}
-
-.pbar {
-  position: relative;
-  height: 18px;
-  width: 10em;
-  text-align: start;
-  background-color: #fff;
-}
-
-.bar {
-  position: absolute;
-  height: 100%;
-  background-color: #00b300;
-}
-
-.bar.progressdisable {
-  background-color: #df2222;
-}
-
-.barlabel {
-  position: relative;
-  left: 10px;
-  line-height: 18px;
-  font-size: 11px;
-  color: #fff;
-}
-
-@media (max-width: 370px) {
-  .grid-overview__toolbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .grid-overview__toolbar-start {
-    width: 100%;
-  }
-
-  .grid-overview__search {
-    max-width: none;
   }
 }
