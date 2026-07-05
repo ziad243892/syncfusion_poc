@@ -1,0 +1,32 @@
+<section class="chat-ui">
+  <header class="chat-ui__header">
+    <h2 class="chat-ui__title">{{ 'chatUi.title' | translate }}</h2>
+    <p class="chat-ui__subtitle">{{ 'chatUi.subtitle' | translate }}</p>
+  </header>
+  <section class="chat-ui__panel" aria-label="{{ 'chatUi.panelLabel' | translate }}">
+    <p class="chat-ui__hint">{{ 'chatUi.hint' | translate }}</p>
+    <div class="chat-ui__assist-wrap">
+      <ejs-aiassistview
+        #assistView
+        id="chat-ui-assistview"
+        class="chat-ui__assist"
+        [enableRtl]="isRtl()"
+        [promptSuggestions]="promptSuggestions"
+        [promptSuggestionsHeader]="promptSuggestionsHeader()"
+        [toolbarSettings]="toolbarSettings"
+        (promptRequest)="onPromptRequest($event)"
+      >
+        <ng-template #bannerTemplate>
+          <div class="chat-ui__banner">
+            <span class="chat-ui__banner-icon e-icons e-assistview-icon" aria-hidden="true"></span>
+            <div class="chat-ui__banner-copy">
+              <h3 class="chat-ui__banner-title">{{ 'chatUi.bannerTitle' | translate }}</h3>
+              <p class="chat-ui__banner-subtitle">{{ 'chatUi.bannerSubtitle' | translate }}</p>
+            </div>
+          </div>
+        </ng-template>
+      </ejs-aiassistview>
+    </div>
+    <p class="chat-ui__tip">{{ 'chatUi.tip' | translate }}</p>
+  </section>
+</section>

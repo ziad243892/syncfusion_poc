@@ -32,6 +32,7 @@ export class Layout {
     { path: '/analysis', icon: 'analytics', labelKey: 'nav.analysis' },
     { path: '/treegrid', icon: 'account_tree', labelKey: 'nav.treegrid' },
     { path: '/query-builder', icon: 'filter_alt', labelKey: 'nav.queryBuilder' },
+    { path: '/chat-ui', icon: 'chat', labelKey: 'nav.chatUi' },
   ];
 
   protected readonly isRtl = computed(() => this.theme.direction() === 'rtl');

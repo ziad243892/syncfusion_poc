@@ -11,6 +11,7 @@
     "analysis": "التحليلات",
     "treegrid": "جدول الشجرة",
     "queryBuilder": "منشئ الاستعلام",
+    "chatUi": "واجهة الدردشة",
     "home": "الرئيسية"
   },
   "header": {
@@ -99,6 +100,16 @@
     "rolePlaceholder": "اختر دوراً",
     "placeholder": "أدخل استفساراتك هنا",
     "tip": "اكتب \"To investigate\" مع اختيار دور مسؤول GitHub، ثم اضغط Tab لقبول الاقتراح المضمن."
+  },
+  "chatUi": {
+    "title": "واجهة الدردشة",
+    "subtitle": "واجهة دردشة AI AssistView مدعومة بـ Syncfusion Material 3.",
+    "hint": "يعرض هذا العرض التوضيحي معالجاً محلياً. اربط OpenAI أو Azure Cognitive Services عبر promptRequest للاستخدام الفعلي.",
+    "panelLabel": "مساعد الدردشة الذكي",
+    "bannerTitle": "المساعدة الذكية",
+    "bannerSubtitle": "رفيقك اليومي المدعوم بالذكاء الاصطناعي.",
+    "suggestionsHeader": "أمثلة على الأسئلة",
+    "tip": "اختر أحد الاقتراحات أو اكتب سؤالك، ثم اضغط إرسال لعرض رد تجريبي."
   },
   "analysis": {
     "title": "لوحة التحليلات",

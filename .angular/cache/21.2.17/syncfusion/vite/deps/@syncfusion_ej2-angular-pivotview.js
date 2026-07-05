@@ -1,4 +1,25 @@
 import {
+  ColumnChooser,
+  CommandColumn,
+  ContextMenu as ContextMenu2,
+  Edit,
+  ExcelExport,
+  Freeze,
+  Grid,
+  Page,
+  Pager,
+  PdfExport,
+  Reorder,
+  Resize,
+  Selection as Selection2,
+  Toolbar as Toolbar2,
+  VirtualScroll,
+  getObject,
+  getScrollBarWidth,
+  headerRefreshed,
+  setStyleAndAttributes
+} from "./chunk-P72ML4Y6.js";
+import {
   AccumulationChart,
   AccumulationDataLabel,
   AccumulationLegend,
@@ -38,32 +59,11 @@ import {
   StepLineSeries,
   StripLine,
   SvgRenderer,
-  Tooltip,
+  Tooltip as Tooltip2,
   Zoom,
   getSeriesColor,
   titleSettings
-} from "./chunk-CUT7K6DJ.js";
-import {
-  ColumnChooser,
-  CommandColumn,
-  ContextMenu as ContextMenu2,
-  Edit,
-  ExcelExport,
-  Freeze,
-  Grid,
-  Page,
-  Pager,
-  PdfExport,
-  Reorder,
-  Resize,
-  Selection as Selection2,
-  Toolbar as Toolbar2,
-  VirtualScroll,
-  getObject,
-  getScrollBarWidth,
-  headerRefreshed,
-  setStyleAndAttributes
-} from "./chunk-GWJBQ4MG.js";
+} from "./chunk-K4P7BG36.js";
 import {
   PdfBitmap,
   PdfBorders,
@@ -94,12 +94,12 @@ import {
 } from "./chunk-S24ENBJR.js";
 import {
   DateTimePicker
-} from "./chunk-RPUVDG7E.js";
+} from "./chunk-ECR6Y5RE.js";
 import {
   CheckBoxSelection,
   DropDownList,
   MultiSelect
-} from "./chunk-GPOVBYAA.js";
+} from "./chunk-ZM7CZQTI.js";
 import {
   Accordion,
   ContextMenu,
@@ -107,7 +107,13 @@ import {
   Tab,
   Toolbar,
   TreeView
-} from "./chunk-Y4X5YPEY.js";
+} from "./chunk-WATKYEAF.js";
+import {
+  DataManager,
+  Deferred,
+  Predicate,
+  Query
+} from "./chunk-5WDVVTKR.js";
 import {
   ColorPicker,
   DropDownButton,
@@ -116,24 +122,18 @@ import {
   TextBox
 } from "./chunk-BVU7BQFE.js";
 import {
+  Dialog,
+  Tooltip,
+  createSpinner,
+  hideSpinner,
+  showSpinner
+} from "./chunk-UDJEW7V3.js";
+import {
   ComponentBase,
   ComponentMixins,
   Template,
   setValue as setValue2
 } from "./chunk-HEY2Z56I.js";
-import {
-  DataManager,
-  Deferred,
-  Predicate,
-  Query
-} from "./chunk-5WDVVTKR.js";
-import {
-  Dialog,
-  Tooltip as Tooltip2,
-  createSpinner,
-  hideSpinner,
-  showSpinner
-} from "./chunk-UDJEW7V3.js";
 import {
   Button,
   CheckBox,
@@ -15773,7 +15773,7 @@ var PivotChart = (
           }));
           this.parent.toolbarModule.isMultiAxisChange = false;
         }
-        Chart.Inject(ColumnSeries, StackingColumnSeries, RangeColumnSeries, BarSeries, StackingBarSeries, ScatterSeries, BubbleSeries, LineSeries, StepLineSeries, SplineSeries, SplineAreaSeries, MultiColoredLineSeries, PolarSeries, RadarSeries, AreaSeries, RangeAreaSeries, StackingAreaSeries, StepAreaSeries, StackingLineSeries, MultiColoredAreaSeries, ParetoSeries, Legend, Tooltip, Category, MultiLevelLabel, ScrollBar, Zoom, Export, Crosshair, Selection, StripLine, DataLabel);
+        Chart.Inject(ColumnSeries, StackingColumnSeries, RangeColumnSeries, BarSeries, StackingBarSeries, ScatterSeries, BubbleSeries, LineSeries, StepLineSeries, SplineSeries, SplineAreaSeries, MultiColoredLineSeries, PolarSeries, RadarSeries, AreaSeries, RangeAreaSeries, StackingAreaSeries, StepAreaSeries, StackingLineSeries, MultiColoredAreaSeries, ParetoSeries, Legend, Tooltip2, Category, MultiLevelLabel, ScrollBar, Zoom, Export, Crosshair, Selection, StripLine, DataLabel);
         AccumulationChart.Inject(PieSeries, FunnelSeries, PyramidSeries, AccumulationDataLabel, AccumulationLegend, AccumulationTooltip, Export);
         if (this.accumulationType.indexOf(type) > -1) {
           this.parent.chart = new AccumulationChart({
@@ -24655,7 +24655,7 @@ var PivotView = (
     PivotView2.prototype.renderToolTip = function() {
       if (this.showTooltip) {
         if (this.tooltipTemplate) {
-          this.tooltip = new Tooltip2({
+          this.tooltip = new Tooltip({
             target: "td.e-valuescontent",
             cssClass: "e-pivottooltiptemplate" + (this.cssClass ? " " + this.cssClass : ""),
             showTipPointer: false,
@@ -24668,7 +24668,7 @@ var PivotView = (
             beforeOpen: this.onBeforeTooltipOpen
           });
         } else {
-          this.tooltip = new Tooltip2({
+          this.tooltip = new Tooltip({
             target: "td.e-valuescontent",
             cssClass: this.cssClass,
             showTipPointer: false,
@@ -36912,7 +36912,7 @@ var CalculatedField = (
               className: ICON + " " + CALC_INFO
             });
             headerWrapperDiv.appendChild(spanElement);
-            var tooltip = new Tooltip2({
+            var tooltip = new Tooltip({
               content: this.parent.localeObj.getConstant("fieldTooltip"),
               position: this.parent.enableRtl ? "RightCenter" : "LeftCenter",
               target: "." + CALC_INFO,

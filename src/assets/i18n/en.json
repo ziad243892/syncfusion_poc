@@ -11,6 +11,7 @@
     "analysis": "Analysis",
     "treegrid": "Tree Grid",
     "queryBuilder": "Query Builder",
+    "chatUi": "Chat UI",
     "home": "Home"
   },
   "header": {
@@ -99,6 +100,16 @@
     "rolePlaceholder": "Select a role",
     "placeholder": "Enter your queries here",
     "tip": "Type \"To investigate\" with the GitHub maintainer role selected, then press Tab to accept the inline suggestion."
+  },
+  "chatUi": {
+    "title": "Chat UI",
+    "subtitle": "AI AssistView chat interface powered by Syncfusion Material 3.",
+    "hint": "This demo uses a local mock handler. Connect OpenAI or Azure Cognitive Services via promptRequest for production use.",
+    "panelLabel": "AI chat assistant",
+    "bannerTitle": "AI Assistance",
+    "bannerSubtitle": "Your everyday AI companion.",
+    "suggestionsHeader": "Example prompts",
+    "tip": "Pick a suggestion chip or type your own question, then press send to see a demo response."
   },
   "analysis": {
     "title": "Analysis Dashboard",

@@ -39,8 +39,10 @@ import {
   VScroll,
   addScrolling,
   destroyScroll
-} from "./chunk-Y4X5YPEY.js";
+} from "./chunk-WATKYEAF.js";
+import "./chunk-5WDVVTKR.js";
 import "./chunk-BVU7BQFE.js";
+import "./chunk-UDJEW7V3.js";
 import {
   ArrayBase,
   ComplexBase,
@@ -49,8 +51,6 @@ import {
   Template,
   setValue
 } from "./chunk-HEY2Z56I.js";
-import "./chunk-5WDVVTKR.js";
-import "./chunk-UDJEW7V3.js";
 import "./chunk-HOBHK6TE.js";
 import "./chunk-BT7RVJDN.js";
 import {

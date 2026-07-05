@@ -23,6 +23,7 @@
     "@syncfusion/ej2-angular-dropdowns": "^33.2.15",
     "@syncfusion/ej2-angular-grids": "^33.2.12",
     "@syncfusion/ej2-angular-inputs": "^33.2.15",
+    "@syncfusion/ej2-angular-interactive-chat": "^33.2.15",
     "@syncfusion/ej2-angular-navigations": "^33.2.15",
     "@syncfusion/ej2-angular-pivotview": "^33.2.6",
     "@syncfusion/ej2-angular-querybuilder": "^33.2.10",
