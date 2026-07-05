@@ -1,4 +1,4 @@
-<section class="page treegrid-page">
+<section class="treegrid-page">
   <div class="treegrid-page__hero">
     <header class="treegrid-page__header">
       <div class="treegrid-page__header-main">
@@ -10,7 +10,6 @@
           <p class="treegrid-page__subtitle">{{ 'treegrid.subtitle' | translate }}</p>
         </div>
       </div>
-
       <div class="treegrid-page__header-badges" aria-hidden="true">
         <span class="treegrid-page__badge">
           <span class="material-icons">layers</span>
@@ -22,7 +21,6 @@
         </span>
       </div>
     </header>
-
     <div class="treegrid-page__toolbar">
       <label class="treegrid-page__search">
         <span class="sr-only">{{ 'treegrid.search' | translate }}</span>
@@ -34,7 +32,6 @@
           (input)="onSearch($event)"
         ></ejs-textbox>
       </label>
-
       <ejs-dropdownlist
         [dataSource]="depthOptions()"
         [fields]="{ text: 'text', value: 'value' }"
@@ -48,7 +45,6 @@
       ></ejs-dropdownlist>
     </div>
   </div>
-
   <div class="treegrid-page__grid-shell">
     <ejs-treegrid
       #taskTreeGrid
@@ -84,14 +80,12 @@
           [freeze]="freezeDirection()"
           [template]="taskNameTemplate"
         ></e-column>
-
         <e-column
           field="skNumber"
           [headerText]="'treegrid.columns.skNumber' | translate"
           [width]="100"
           [minWidth]="columnMinWidth"
         ></e-column>
-
         <e-column
           field="assignee"
           [headerText]="'treegrid.columns.assignee' | translate"
@@ -101,7 +95,6 @@
           clipMode="EllipsisWithTooltip"
           [template]="assigneeTemplate"
         ></e-column>
-
         <e-column
           field="department"
           [headerText]="'treegrid.columns.department' | translate"
@@ -109,7 +102,6 @@
           [minWidth]="columnMinWidth"
           clipMode="EllipsisWithTooltip"
         ></e-column>
-
         <e-column
           field="location"
           [headerText]="'treegrid.columns.location' | translate"
@@ -118,7 +110,6 @@
           clipMode="EllipsisWithTooltip"
           [template]="locationTemplate"
         ></e-column>
-
         <e-column
           field="startDate"
           [headerText]="'treegrid.columns.startDate' | translate"
@@ -127,7 +118,6 @@
           [width]="118"
           [minWidth]="columnMinWidth"
         ></e-column>
-
         <e-column
           field="endDate"
           [headerText]="'treegrid.columns.endDate' | translate"
@@ -136,14 +126,12 @@
           [width]="118"
           [minWidth]="columnMinWidth"
         ></e-column>
-
         <e-column
           field="duration"
           [headerText]="'treegrid.columns.duration' | translate"
           [width]="100"
           [minWidth]="columnMinWidth"
         ></e-column>
-
         <e-column
           field="progress"
           [headerText]="'treegrid.columns.progress' | translate"
@@ -152,7 +140,6 @@
           [allowSorting]="false"
           [template]="progressTemplate"
         ></e-column>
-
         <e-column
           field="statusKey"
           [headerText]="'treegrid.columns.status' | translate"
@@ -160,7 +147,6 @@
           [minWidth]="columnMinWidth"
           [template]="statusTemplate"
         ></e-column>
-
         <e-column
           field="priority"
           [headerText]="'treegrid.columns.priority' | translate"
@@ -168,7 +154,6 @@
           [minWidth]="columnMinWidth"
           [template]="priorityTemplate"
         ></e-column>
-
         <e-column
           field="rating"
           [headerText]="'treegrid.columns.rating' | translate"
@@ -177,7 +162,6 @@
           [allowSorting]="false"
           [template]="ratingTemplate"
         ></e-column>
-
         <e-column
           field="budget"
           [headerText]="'treegrid.columns.budget' | translate"
@@ -185,7 +169,6 @@
           [width]="108"
           [minWidth]="columnMinWidth"
         ></e-column>
-
         <e-column
           field="resourceTypeKey"
           [headerText]="'treegrid.columns.resource' | translate"
@@ -194,7 +177,6 @@
           clipMode="EllipsisWithTooltip"
           [template]="resourceTemplate"
         ></e-column>
-
         <e-column
           field="trustKey"
           [headerText]="'treegrid.columns.trust' | translate"
@@ -203,7 +185,6 @@
           clipMode="EllipsisWithTooltip"
           [template]="trustTemplate"
         ></e-column>
-
         <e-column
           field="riskKey"
           [headerText]="'treegrid.columns.risk' | translate"
@@ -211,7 +192,6 @@
           [minWidth]="columnMinWidth"
           [template]="riskTemplate"
         ></e-column>
-
         <e-column
           field="mail"
           [headerText]="'treegrid.columns.mail' | translate"
@@ -219,7 +199,6 @@
           [minWidth]="columnMinWidth"
           clipMode="EllipsisWithTooltip"
         ></e-column>
-
         <e-column
           field="approved"
           [headerText]="'treegrid.columns.approved' | translate"
@@ -232,7 +211,6 @@
     </ejs-treegrid>
   </div>
 </section>
-
 <ng-template #taskNameTemplate let-data>
   <span
     class="treegrid-page__task-name"
@@ -241,7 +219,6 @@
     {{ data.taskName }}
   </span>
 </ng-template>
-
 <ng-template #assigneeTemplate let-data>
   <div class="treegrid-page__cell treegrid-page__assignee">
     <img
@@ -255,7 +232,6 @@
     <span class="treegrid-page__assignee-name">{{ data.assignee }}</span>
   </div>
 </ng-template>
-
 <ng-template #locationTemplate let-data>
   <div class="treegrid-page__cell treegrid-page__location">
     <img
@@ -270,7 +246,6 @@
     <span class="treegrid-page__cell-text">{{ data.location }}</span>
   </div>
 </ng-template>
-
 <ng-template #progressTemplate let-data>
   <div class="treegrid-page__cell treegrid-page__progress" [attr.aria-label]="progressValue(data) + '%'">
     <div class="treegrid-page__progress-track">
@@ -282,7 +257,6 @@
     <span class="treegrid-page__progress-label">{{ progressValue(data) }}%</span>
   </div>
 </ng-template>
-
 <ng-template #statusTemplate let-data>
   <div class="treegrid-page__cell">
     <span class="treegrid-page__status" [class]="statusClass(data.statusKey)">
@@ -290,7 +264,6 @@
     </span>
   </div>
 </ng-template>
-
 <ng-template #priorityTemplate let-data>
   <div class="treegrid-page__cell">
     <span class="treegrid-page__priority" [class]="priorityClass(data.priority)">
@@ -298,7 +271,6 @@
     </span>
   </div>
 </ng-template>
-
 <ng-template #ratingTemplate let-data>
   <div class="treegrid-page__cell treegrid-page__rating" [attr.aria-label]="'Rating ' + data.rating + ' of 5'">
     @for (star of ratingStars; track star) {
@@ -312,7 +284,6 @@
     }
   </div>
 </ng-template>
-
 <ng-template #resourceTemplate let-data>
   <div class="treegrid-page__cell treegrid-page__resource">
     <img
@@ -326,7 +297,6 @@
     <span class="treegrid-page__cell-text">{{ resourceLabel(data.resourceTypeKey) }}</span>
   </div>
 </ng-template>
-
 <ng-template #trustTemplate let-data>
   <div class="treegrid-page__cell treegrid-page__trust">
     <img
@@ -340,7 +310,6 @@
     <span class="treegrid-page__cell-text">{{ trustLabel(data.trustKey) }}</span>
   </div>
 </ng-template>
-
 <ng-template #riskTemplate let-data>
   <div class="treegrid-page__cell">
     <span class="treegrid-page__risk" [class]="riskClass(data.riskKey)">
