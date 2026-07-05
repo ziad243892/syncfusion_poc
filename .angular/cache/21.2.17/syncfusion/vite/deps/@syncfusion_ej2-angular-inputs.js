@@ -1,4 +1,7 @@
 import {
+  NG_VALUE_ACCESSOR
+} from "./chunk-UPO2Q5MZ.js";
+import {
   AsyncSettings,
   ButtonSettings,
   ButtonsProps,
@@ -69,9 +72,6 @@ import {
 import "./chunk-UDJEW7V3.js";
 import "./chunk-HOBHK6TE.js";
 import "./chunk-BT7RVJDN.js";
-import {
-  NG_VALUE_ACCESSOR
-} from "./chunk-UPO2Q5MZ.js";
 import {
   CommonModule
 } from "./chunk-QDLX74IB.js";

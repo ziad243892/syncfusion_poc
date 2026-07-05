@@ -1,25 +1,4 @@
 import {
-  ColumnChooser,
-  CommandColumn,
-  ContextMenu as ContextMenu2,
-  Edit,
-  ExcelExport,
-  Freeze,
-  Grid,
-  Page,
-  Pager,
-  PdfExport,
-  Reorder,
-  Resize,
-  Selection,
-  Toolbar as Toolbar2,
-  VirtualScroll,
-  getObject,
-  getScrollBarWidth,
-  headerRefreshed,
-  setStyleAndAttributes
-} from "./chunk-4RWHAOII.js";
-import {
   AccumulationChart,
   AccumulationDataLabel,
   AccumulationLegend,
@@ -48,7 +27,7 @@ import {
   RangeColumnSeries,
   ScatterSeries,
   ScrollBar,
-  Selection as Selection2,
+  Selection,
   SplineAreaSeries,
   SplineSeries,
   StackingAreaSeries,
@@ -59,11 +38,32 @@ import {
   StepLineSeries,
   StripLine,
   SvgRenderer,
-  Tooltip as Tooltip2,
+  Tooltip,
   Zoom,
   getSeriesColor,
   titleSettings
-} from "./chunk-AUKG7OAB.js";
+} from "./chunk-CUT7K6DJ.js";
+import {
+  ColumnChooser,
+  CommandColumn,
+  ContextMenu as ContextMenu2,
+  Edit,
+  ExcelExport,
+  Freeze,
+  Grid,
+  Page,
+  Pager,
+  PdfExport,
+  Reorder,
+  Resize,
+  Selection as Selection2,
+  Toolbar as Toolbar2,
+  VirtualScroll,
+  getObject,
+  getScrollBarWidth,
+  headerRefreshed,
+  setStyleAndAttributes
+} from "./chunk-GWJBQ4MG.js";
 import {
   PdfBitmap,
   PdfBorders,
@@ -91,15 +91,15 @@ import {
   Save,
   SizeF,
   Workbook
-} from "./chunk-S2WTCEF4.js";
+} from "./chunk-S24ENBJR.js";
+import {
+  DateTimePicker
+} from "./chunk-RPUVDG7E.js";
 import {
   CheckBoxSelection,
   DropDownList,
   MultiSelect
-} from "./chunk-5UCRPW3O.js";
-import {
-  DateTimePicker
-} from "./chunk-I5OJCR4Z.js";
+} from "./chunk-GPOVBYAA.js";
 import {
   Accordion,
   ContextMenu,
@@ -107,7 +107,7 @@ import {
   Tab,
   Toolbar,
   TreeView
-} from "./chunk-NETYM5VS.js";
+} from "./chunk-Y4X5YPEY.js";
 import {
   ColorPicker,
   DropDownButton,
@@ -129,7 +129,7 @@ import {
 } from "./chunk-5WDVVTKR.js";
 import {
   Dialog,
-  Tooltip,
+  Tooltip as Tooltip2,
   createSpinner,
   hideSpinner,
   showSpinner
@@ -8745,7 +8745,7 @@ var Render = (
       if (parent.allowPdfExport) {
         Grid.Inject(PdfExport);
       }
-      Grid.Inject(Selection, Reorder, Resize);
+      Grid.Inject(Selection2, Reorder, Resize);
       if (this.gridSettings.contextMenuItems) {
         Grid.Inject(ContextMenu2);
       }
@@ -14696,7 +14696,7 @@ var DrillThroughDialog = (
         }
       }
       var drillThroughGrid = createElement("div", { id: this.parent.element.id + "_drillthroughgrid", className: DRILLTHROUGH_GRID_CLASS });
-      Grid.Inject(Selection, Reorder, Resize, Toolbar2, ColumnChooser);
+      Grid.Inject(Selection2, Reorder, Resize, Toolbar2, ColumnChooser);
       this.drillThroughGrid = new Grid({
         cssClass: this.parent.cssClass,
         gridLines: "Default",
@@ -15773,7 +15773,7 @@ var PivotChart = (
           }));
           this.parent.toolbarModule.isMultiAxisChange = false;
         }
-        Chart.Inject(ColumnSeries, StackingColumnSeries, RangeColumnSeries, BarSeries, StackingBarSeries, ScatterSeries, BubbleSeries, LineSeries, StepLineSeries, SplineSeries, SplineAreaSeries, MultiColoredLineSeries, PolarSeries, RadarSeries, AreaSeries, RangeAreaSeries, StackingAreaSeries, StepAreaSeries, StackingLineSeries, MultiColoredAreaSeries, ParetoSeries, Legend, Tooltip2, Category, MultiLevelLabel, ScrollBar, Zoom, Export, Crosshair, Selection2, StripLine, DataLabel);
+        Chart.Inject(ColumnSeries, StackingColumnSeries, RangeColumnSeries, BarSeries, StackingBarSeries, ScatterSeries, BubbleSeries, LineSeries, StepLineSeries, SplineSeries, SplineAreaSeries, MultiColoredLineSeries, PolarSeries, RadarSeries, AreaSeries, RangeAreaSeries, StackingAreaSeries, StepAreaSeries, StackingLineSeries, MultiColoredAreaSeries, ParetoSeries, Legend, Tooltip, Category, MultiLevelLabel, ScrollBar, Zoom, Export, Crosshair, Selection, StripLine, DataLabel);
         AccumulationChart.Inject(PieSeries, FunnelSeries, PyramidSeries, AccumulationDataLabel, AccumulationLegend, AccumulationTooltip, Export);
         if (this.accumulationType.indexOf(type) > -1) {
           this.parent.chart = new AccumulationChart({
@@ -24655,7 +24655,7 @@ var PivotView = (
     PivotView2.prototype.renderToolTip = function() {
       if (this.showTooltip) {
         if (this.tooltipTemplate) {
-          this.tooltip = new Tooltip({
+          this.tooltip = new Tooltip2({
             target: "td.e-valuescontent",
             cssClass: "e-pivottooltiptemplate" + (this.cssClass ? " " + this.cssClass : ""),
             showTipPointer: false,
@@ -24668,7 +24668,7 @@ var PivotView = (
             beforeOpen: this.onBeforeTooltipOpen
           });
         } else {
-          this.tooltip = new Tooltip({
+          this.tooltip = new Tooltip2({
             target: "td.e-valuescontent",
             cssClass: this.cssClass,
             showTipPointer: false,
@@ -36912,7 +36912,7 @@ var CalculatedField = (
               className: ICON + " " + CALC_INFO
             });
             headerWrapperDiv.appendChild(spanElement);
-            var tooltip = new Tooltip({
+            var tooltip = new Tooltip2({
               content: this.parent.localeObj.getConstant("fieldTooltip"),
               position: this.parent.enableRtl ? "RightCenter" : "LeftCenter",
               target: "." + CALC_INFO,
