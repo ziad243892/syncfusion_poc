@@ -8,12 +8,10 @@
   text-align: start;
 }
 
-// Keep Syncfusion icons for grid controls that still use e-icons.
 .e-grid .e-icons {
   font-family: 'e-icons';
 }
 
-// Grid filter & sort header icons use Material Icons (Filled).
 .e-grid .e-icon-filter::before,
 .e-grid-menu .e-icon-filter::before,
 .e-excelfilter .e-icon-filter::before,
@@ -98,7 +96,6 @@
   transform: none;
 }
 
-// Global Syncfusion outlined fields (textbox, dropdown, date-like controls).
 .e-input-group,
 .e-float-input,
 .e-input-group.e-control-wrapper,
@@ -130,7 +127,6 @@
   box-shadow: 0 0 0 1px var(--app-primary);
 }
 
-// Query Builder uses Material line/underline fields (not outlined boxes).
 .e-query-builder {
   .e-input-group,
   .e-float-input,

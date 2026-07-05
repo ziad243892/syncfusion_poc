@@ -15,7 +15,6 @@ html {
   zoom: var(--app-zoom-factor, 1);
 }
 
-/* Firefox fallback when CSS zoom is unavailable */
 @supports not (zoom: 1) {
   html {
     font-size: calc(16px * var(--app-zoom-factor, 1));
