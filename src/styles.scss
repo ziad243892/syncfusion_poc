@@ -15,6 +15,7 @@
 @import '@syncfusion/ej2-calendars/styles/material3.css';
 @import '@syncfusion/ej2-splitbuttons/styles/material3.css';
 @import '@syncfusion/ej2-grids/styles/material3.css';
+@import '@syncfusion/ej2-treegrid/styles/material3.css';
 @import '@syncfusion/ej2-pivotview/styles/material3.css';
 @import '@syncfusion/ej2-icons/styles/material3.css';
 
@@ -30,4 +31,14 @@
     color: rgb(6, 95, 70) !important;
     background-color: rgb(209, 250, 229) !important;
     font-size: 12px !important;
+}
+
+.e-gridcontent .e-content {
+    height: calc(100vh - 396px) !important;
+}
+
+
+.e-grid .e-clipboard:lang(ar) {
+    right: -1000px;
+    left: unset;
 }

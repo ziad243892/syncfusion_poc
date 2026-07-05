@@ -9,6 +9,7 @@
     "forms": "Forms",
     "smartTextarea": "Smart TextArea",
     "analysis": "Analysis",
+    "treegrid": "Tree Grid",
     "home": "Home"
   },
   "header": {
@@ -196,6 +197,109 @@
     "arabic": "Arabic",
     "ltr": "LTR",
     "rtl": "RTL"
+  },
+  "treegrid": {
+    "title": "Tree Grid",
+    "subtitle": "Hierarchical task table with search, sorting, filtering, and up to four nesting levels.",
+    "search": "Search tasks...",
+    "selectDepth": "Hierarchy depth",
+    "badges": {
+      "levels": "4 hierarchy levels",
+      "features": "Search, sort & filter"
+    },
+    "depth": {
+      "level1": "1 Level — Root tasks only",
+      "level2": "2 Levels — Root + children",
+      "level3": "3 Levels — Root + 2 child tiers",
+      "level4": "4 Levels — Full hierarchy"
+    },
+    "columns": {
+      "taskId": "Task ID",
+      "skNumber": "SK Number",
+      "assignee": "Assignee",
+      "taskName": "Task Name",
+      "department": "Department",
+      "location": "Location",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "duration": "Duration",
+      "progress": "Progress",
+      "status": "Status",
+      "priority": "Priority",
+      "rating": "Rating",
+      "budget": "Budget",
+      "resource": "Resource",
+      "trust": "Trust",
+      "risk": "Risk",
+      "mail": "Mail",
+      "approved": "Approved"
+    },
+    "status": {
+      "notStarted": "Not Started",
+      "inProgress": "In Progress",
+      "completed": "Completed",
+      "onHold": "On Hold"
+    },
+    "resource": {
+      "design": "Design",
+      "development": "Development",
+      "qa": "QA",
+      "management": "Management"
+    },
+    "trust": {
+      "perfect": "Perfect",
+      "sufficient": "Sufficient",
+      "insufficient": "Insufficient"
+    },
+    "risk": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "priority": {
+      "low": "Low",
+      "normal": "Normal",
+      "high": "High",
+      "critical": "Critical"
+    },
+    "tasks": {
+      "1": "Planning",
+      "2": "Plan timeline",
+      "3": "Plan budget",
+      "4": "Allocate resources",
+      "5": "Planning complete",
+      "6": "Design",
+      "7": "Software Specification",
+      "8": "Develop prototype",
+      "9": "Get approval from customer",
+      "10": "Design Documentation",
+      "11": "Design complete",
+      "12": "Implementation Phase",
+      "13": "Phase 1",
+      "14": "Implementation Module 1",
+      "15": "Development Task 1",
+      "16": "Development Task 2",
+      "17": "Testing",
+      "18": "Bug fix",
+      "19": "Customer review meeting",
+      "20": "Phase 1 complete",
+      "21": "Phase 2",
+      "22": "Implementation Module 2",
+      "23": "Development Task 1",
+      "24": "Development Task 2",
+      "25": "Testing",
+      "26": "Bug fix",
+      "27": "Customer review meeting",
+      "28": "Phase 2 complete",
+      "29": "Phase 3",
+      "30": "Implementation Module 3",
+      "31": "Development Task 1",
+      "32": "Development Task 2",
+      "33": "Testing",
+      "34": "Bug fix",
+      "35": "Customer review meeting",
+      "36": "Phase 3 complete"
+    }
   },
   "gridOverview": {
     "search": "Search employees...",

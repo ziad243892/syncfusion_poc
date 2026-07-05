@@ -30,6 +30,7 @@ export class Layout {
     { path: '/forms', icon: 'description', labelKey: 'nav.forms' },
     { path: '/smart-textarea', icon: 'auto_awesome', labelKey: 'nav.smartTextarea' },
     { path: '/analysis', icon: 'analytics', labelKey: 'nav.analysis' },
+    { path: '/treegrid', icon: 'account_tree', labelKey: 'nav.treegrid' },
   ];
 
   protected readonly isRtl = computed(() => this.theme.direction() === 'rtl');

@@ -1,0 +1,350 @@
+<section class="page treegrid-page">
+  <div class="treegrid-page__hero">
+    <header class="treegrid-page__header">
+      <div class="treegrid-page__header-main">
+        <div class="treegrid-page__header-icon" aria-hidden="true">
+          <span class="material-icons">account_tree</span>
+        </div>
+        <div class="treegrid-page__header-copy">
+          <h2 class="treegrid-page__title">{{ 'treegrid.title' | translate }}</h2>
+          <p class="treegrid-page__subtitle">{{ 'treegrid.subtitle' | translate }}</p>
+        </div>
+      </div>
+
+      <div class="treegrid-page__header-badges" aria-hidden="true">
+        <span class="treegrid-page__badge">
+          <span class="material-icons">layers</span>
+          {{ 'treegrid.badges.levels' | translate }}
+        </span>
+        <span class="treegrid-page__badge">
+          <span class="material-icons">tune</span>
+          {{ 'treegrid.badges.features' | translate }}
+        </span>
+      </div>
+    </header>
+
+    <div class="treegrid-page__toolbar">
+      <label class="treegrid-page__search">
+        <span class="sr-only">{{ 'treegrid.search' | translate }}</span>
+        <ejs-textbox
+          [placeholder]="'treegrid.search' | translate"
+          [showClearButton]="true"
+          cssClass="e-outline"
+          floatLabelType="Auto"
+          (input)="onSearch($event)"
+        ></ejs-textbox>
+      </label>
+
+      <ejs-dropdownlist
+        [dataSource]="depthOptions()"
+        [fields]="{ text: 'text', value: 'value' }"
+        [value]="selectedDepth()"
+        [placeholder]="'treegrid.selectDepth' | translate"
+        cssClass="e-outline"
+        floatLabelType="Auto"
+        popupHeight="220px"
+        width="220px"
+        (change)="onDepthChange($event)"
+      ></ejs-dropdownlist>
+    </div>
+  </div>
+
+  <div class="treegrid-page__grid-shell">
+    <ejs-treegrid
+      #taskTreeGrid
+      class="treegrid-page__grid"
+      width="100%"
+      [dataSource]="treeData()"
+      childMapping="subtasks"
+      [treeColumnIndex]="0"
+      [locale]="gridLocale()"
+      [height]="gridHeight"
+      [rowHeight]="gridRowHeight"
+      [allowSorting]="true"
+      [allowMultiSorting]="true"
+      [allowFiltering]="true"
+      [allowResizing]="true"
+      [enableAltRow]="true"
+      gridLines="None"
+      [filterSettings]="filterSettings"
+      [sortSettings]="sortSettings"
+      [enableRtl]="isRtl()"
+      [enableHover]="true"
+      (created)="onGridCreated()"
+      (dataBound)="onDataBound()"
+    >
+      <e-columns>
+        <e-column
+          field="taskName"
+          [headerText]="'treegrid.columns.taskName' | translate"
+          [width]="350"
+          [minWidth]="taskNameMinWidth"
+          clipMode="EllipsisWithTooltip"
+          [isFrozen]="true"
+          [freeze]="freezeDirection()"
+          [template]="taskNameTemplate"
+        ></e-column>
+
+        <e-column
+          field="skNumber"
+          [headerText]="'treegrid.columns.skNumber' | translate"
+          [width]="100"
+          [minWidth]="columnMinWidth"
+        ></e-column>
+
+        <e-column
+          field="assignee"
+          [headerText]="'treegrid.columns.assignee' | translate"
+          [width]="160"
+          [minWidth]="columnMinWidth"
+          [allowSorting]="false"
+          clipMode="EllipsisWithTooltip"
+          [template]="assigneeTemplate"
+        ></e-column>
+
+        <e-column
+          field="department"
+          [headerText]="'treegrid.columns.department' | translate"
+          [width]="130"
+          [minWidth]="columnMinWidth"
+          clipMode="EllipsisWithTooltip"
+        ></e-column>
+
+        <e-column
+          field="location"
+          [headerText]="'treegrid.columns.location' | translate"
+          [width]="130"
+          [minWidth]="columnMinWidth"
+          clipMode="EllipsisWithTooltip"
+          [template]="locationTemplate"
+        ></e-column>
+
+        <e-column
+          field="startDate"
+          [headerText]="'treegrid.columns.startDate' | translate"
+          type="date"
+          format="yMd"
+          [width]="118"
+          [minWidth]="columnMinWidth"
+        ></e-column>
+
+        <e-column
+          field="endDate"
+          [headerText]="'treegrid.columns.endDate' | translate"
+          type="date"
+          format="yMd"
+          [width]="118"
+          [minWidth]="columnMinWidth"
+        ></e-column>
+
+        <e-column
+          field="duration"
+          [headerText]="'treegrid.columns.duration' | translate"
+          [width]="100"
+          [minWidth]="columnMinWidth"
+        ></e-column>
+
+        <e-column
+          field="progress"
+          [headerText]="'treegrid.columns.progress' | translate"
+          [width]="148"
+          [minWidth]="columnMinWidth"
+          [allowSorting]="false"
+          [template]="progressTemplate"
+        ></e-column>
+
+        <e-column
+          field="statusKey"
+          [headerText]="'treegrid.columns.status' | translate"
+          [width]="118"
+          [minWidth]="columnMinWidth"
+          [template]="statusTemplate"
+        ></e-column>
+
+        <e-column
+          field="priority"
+          [headerText]="'treegrid.columns.priority' | translate"
+          [width]="108"
+          [minWidth]="columnMinWidth"
+          [template]="priorityTemplate"
+        ></e-column>
+
+        <e-column
+          field="rating"
+          [headerText]="'treegrid.columns.rating' | translate"
+          [width]="118"
+          [minWidth]="columnMinWidth"
+          [allowSorting]="false"
+          [template]="ratingTemplate"
+        ></e-column>
+
+        <e-column
+          field="budget"
+          [headerText]="'treegrid.columns.budget' | translate"
+          format="C0"
+          [width]="108"
+          [minWidth]="columnMinWidth"
+        ></e-column>
+
+        <e-column
+          field="resourceTypeKey"
+          [headerText]="'treegrid.columns.resource' | translate"
+          [width]="130"
+          [minWidth]="columnMinWidth"
+          clipMode="EllipsisWithTooltip"
+          [template]="resourceTemplate"
+        ></e-column>
+
+        <e-column
+          field="trustKey"
+          [headerText]="'treegrid.columns.trust' | translate"
+          [width]="118"
+          [minWidth]="columnMinWidth"
+          clipMode="EllipsisWithTooltip"
+          [template]="trustTemplate"
+        ></e-column>
+
+        <e-column
+          field="riskKey"
+          [headerText]="'treegrid.columns.risk' | translate"
+          [width]="100"
+          [minWidth]="columnMinWidth"
+          [template]="riskTemplate"
+        ></e-column>
+
+        <e-column
+          field="mail"
+          [headerText]="'treegrid.columns.mail' | translate"
+          [width]="200"
+          [minWidth]="columnMinWidth"
+          clipMode="EllipsisWithTooltip"
+        ></e-column>
+
+        <e-column
+          field="approved"
+          [headerText]="'treegrid.columns.approved' | translate"
+          [width]="100"
+          [minWidth]="columnMinWidth"
+          displayAsCheckBox="true"
+          type="boolean"
+        ></e-column>
+      </e-columns>
+    </ejs-treegrid>
+  </div>
+</section>
+
+<ng-template #taskNameTemplate let-data>
+  <span
+    class="treegrid-page__task-name"
+    [class.treegrid-page__task-name--parent]="hasChildren(data)"
+  >
+    {{ data.taskName }}
+  </span>
+</ng-template>
+
+<ng-template #assigneeTemplate let-data>
+  <div class="treegrid-page__cell treegrid-page__assignee">
+    <img
+      class="treegrid-page__avatar"
+      [src]="assigneeSrc(data)"
+      [alt]="data.assignee"
+      width="28"
+      height="28"
+      loading="lazy"
+    />
+    <span class="treegrid-page__assignee-name">{{ data.assignee }}</span>
+  </div>
+</ng-template>
+
+<ng-template #locationTemplate let-data>
+  <div class="treegrid-page__cell treegrid-page__location">
+    <img
+      class="treegrid-page__location-icon"
+      [src]="mapImage"
+      alt=""
+      width="18"
+      height="18"
+      loading="lazy"
+      aria-hidden="true"
+    />
+    <span class="treegrid-page__cell-text">{{ data.location }}</span>
+  </div>
+</ng-template>
+
+<ng-template #progressTemplate let-data>
+  <div class="treegrid-page__cell treegrid-page__progress" [attr.aria-label]="progressValue(data) + '%'">
+    <div class="treegrid-page__progress-track">
+      <div
+        class="treegrid-page__progress-bar"
+        [style.width.%]="progressValue(data)"
+      ></div>
+    </div>
+    <span class="treegrid-page__progress-label">{{ progressValue(data) }}%</span>
+  </div>
+</ng-template>
+
+<ng-template #statusTemplate let-data>
+  <div class="treegrid-page__cell">
+    <span class="treegrid-page__status" [class]="statusClass(data.statusKey)">
+      {{ statusLabel(data.statusKey) }}
+    </span>
+  </div>
+</ng-template>
+
+<ng-template #priorityTemplate let-data>
+  <div class="treegrid-page__cell">
+    <span class="treegrid-page__priority" [class]="priorityClass(data.priority)">
+      {{ 'treegrid.priority.' + data.priority.toLowerCase() | translate }}
+    </span>
+  </div>
+</ng-template>
+
+<ng-template #ratingTemplate let-data>
+  <div class="treegrid-page__cell treegrid-page__rating" [attr.aria-label]="'Rating ' + data.rating + ' of 5'">
+    @for (star of ratingStars; track star) {
+      <span
+        class="material-icons treegrid-page__star"
+        [class.treegrid-page__star--filled]="star <= data.rating"
+        aria-hidden="true"
+      >
+        star
+      </span>
+    }
+  </div>
+</ng-template>
+
+<ng-template #resourceTemplate let-data>
+  <div class="treegrid-page__cell treegrid-page__resource">
+    <img
+      class="treegrid-page__resource-icon"
+      [src]="data.resourceImg"
+      [alt]="resourceLabel(data.resourceTypeKey)"
+      width="20"
+      height="20"
+      loading="lazy"
+    />
+    <span class="treegrid-page__cell-text">{{ resourceLabel(data.resourceTypeKey) }}</span>
+  </div>
+</ng-template>
+
+<ng-template #trustTemplate let-data>
+  <div class="treegrid-page__cell treegrid-page__trust">
+    <img
+      class="treegrid-page__trust-icon"
+      [src]="data.trustImg"
+      [alt]="trustLabel(data.trustKey)"
+      width="22"
+      height="22"
+      loading="lazy"
+    />
+    <span class="treegrid-page__cell-text">{{ trustLabel(data.trustKey) }}</span>
+  </div>
+</ng-template>
+
+<ng-template #riskTemplate let-data>
+  <div class="treegrid-page__cell">
+    <span class="treegrid-page__risk" [class]="riskClass(data.riskKey)">
+      {{ riskLabel(data.riskKey) }}
+    </span>
+  </div>
+</ng-template>

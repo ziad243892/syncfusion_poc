@@ -39,7 +39,7 @@ import {
   VScroll,
   addScrolling,
   destroyScroll
-} from "./chunk-GSHKZPEY.js";
+} from "./chunk-YIVBNG5V.js";
 import "./chunk-SP2G7S6W.js";
 import {
   ArrayBase,
