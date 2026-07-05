@@ -1,73 +1,77 @@
-.query-builder-page__demo {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.query-builder-page__hint,
-.query-builder-page__tip {
-  margin: 0;
-  color: var(--app-text-muted);
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
-.query-builder-page__container {
-  border: 1px solid var(--app-border);
-  border-radius: 0.75rem;
-  overflow: hidden;
-}
-
-.query-builder-page__label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-}
-
-.query-builder-page__prompt {
-  padding: 1rem;
-}
-
-.query-builder-page__textarea {
-  width: 100%;
-  min-height: 6.5rem;
-  padding: 0.75rem;
-  border: 1px solid var(--app-border);
-  border-radius: 0.5rem;
-  resize: vertical;
-  font: inherit;
-  color: var(--app-text);
-  background: var(--app-surface);
-  box-sizing: border-box;
-}
-
-.query-builder-page__actions {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 1rem;
-  border-block-start: 1px solid var(--app-border);
-}
-
-.query-builder-page__error {
-  margin: 0;
-  color: #b42318;
-  font-size: 0.875rem;
-}
-
-.query-builder-page__results {
-  padding: 1rem;
-  border-block-start: 1px solid var(--app-border);
-}
-
-:host ::ng-deep .query-builder-page__container {
-  .e-tab .e-content {
-    padding: 1rem;
+.query-builder-page {
+  &__demo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--qb-demo-gap);
   }
 
-  #query-builder-results-grid .e-content {
-    height: 320px !important;
+  &__hint,
+  &__tip {
+    margin: 0;
+    color: var(--app-text-muted);
+    font-size: var(--qb-copy-size);
+    line-height: var(--qb-copy-line-height);
+  }
+
+  &__container {
+    border: 1px solid var(--app-border);
+    border-radius: var(--qb-container-radius);
+    overflow: hidden;
+  }
+
+  &__label {
+    display: block;
+    margin: 0 0 var(--qb-label-gap);
+    font-size: var(--qb-copy-size);
+    font-weight: 600;
+  }
+
+  &__prompt {
+    padding: var(--qb-section-padding);
+  }
+
+  &__textarea {
+    width: 100%;
+    min-height: var(--qb-textarea-min-height);
+    padding: var(--qb-textarea-padding);
+    border: 1px solid var(--app-border);
+    border-radius: var(--qb-control-radius);
+    resize: vertical;
+    font: inherit;
+    color: var(--app-text);
+    background: var(--app-surface);
+    box-sizing: border-box;
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--qb-actions-gap);
+    padding: var(--qb-section-padding);
+    border-block-start: 1px solid var(--app-border);
+  }
+
+  &__error {
+    margin: 0;
+    color: var(--qb-error-color);
+    font-size: var(--qb-copy-size);
+  }
+
+  &__results {
+    padding: var(--qb-section-padding);
+    border-block-start: 1px solid var(--app-border);
+  }
+}
+
+:host ::ng-deep .query-builder-page {
+  &__container {
+    .e-tab .e-content {
+      padding: var(--qb-section-padding);
+    }
+
+    #query-builder-results-grid .e-content {
+      height: var(--qb-results-grid-height) !important;
+    }
   }
 }

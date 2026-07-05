@@ -89,6 +89,22 @@ html.app-gray-mode .app-shell {
   padding: 1rem;
 }
 
+// Query Builder page — scoped tokens for layout, copy, and Syncfusion overrides.
+.query-builder-page {
+  --qb-demo-gap: 1.25rem;
+  --qb-copy-size: 0.875rem;
+  --qb-copy-line-height: 1.5;
+  --qb-container-radius: var(--app-radius);
+  --qb-label-gap: 0.5rem;
+  --qb-section-padding: 1rem;
+  --qb-control-radius: 0.5rem;
+  --qb-textarea-min-height: 6.5rem;
+  --qb-textarea-padding: 0.75rem;
+  --qb-actions-gap: 0.75rem;
+  --qb-error-color: rgb(var(--color-sf-error));
+  --qb-results-grid-height: 320px;
+}
+
 .panel__title {
   font-size: 1rem;
   font-weight: 700;

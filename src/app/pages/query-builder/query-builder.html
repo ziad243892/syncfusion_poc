@@ -13,7 +13,9 @@
           <e-tabitem [header]="tabHeaders[0]">
             <ng-template #content>
               <div class="query-builder-page__prompt">
-                <span class="query-builder-page__label">{{ 'queryBuilder.instructAi' | translate }}</span>
+                <label class="query-builder-page__label" for="query-builder-nl-input">
+                  {{ 'queryBuilder.instructAi' | translate }}
+                </label>
                 <textarea
                   id="query-builder-nl-input"
                   class="query-builder-page__textarea"
@@ -63,7 +65,7 @@
       </div>
 
       <div class="query-builder-page__results">
-        <span class="query-builder-page__label">{{ 'queryBuilder.resultsTitle' | translate }}</span>
+        <h3 class="query-builder-page__label">{{ 'queryBuilder.resultsTitle' | translate }}</h3>
         <ejs-grid
           id="query-builder-results-grid"
           #resultsGrid
