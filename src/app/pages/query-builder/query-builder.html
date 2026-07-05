@@ -1,12 +1,10 @@
-<section class="page query-builder-page">
-  <header class="page__header">
-    <h2 class="page__title">{{ 'queryBuilder.title' | translate }}</h2>
-    <p class="page__subtitle">{{ 'queryBuilder.subtitle' | translate }}</p>
+<section class="query-builder-page">
+  <header class="query-builder-page__header">
+    <h2 class="query-builder-page__title">{{ 'queryBuilder.title' | translate }}</h2>
+    <p class="query-builder-page__subtitle">{{ 'queryBuilder.subtitle' | translate }}</p>
   </header>
-
-  <section class="panel query-builder-page__demo">
+  <section class="query-builder-page__panel">
     <p class="query-builder-page__hint">{{ 'queryBuilder.hint' | translate }}</p>
-
     <div class="query-builder-page__container">
       <ejs-tab id="query-builder-tabs" #queryTabs (created)="onTabsCreated()">
         <e-tabitems>
@@ -26,7 +24,6 @@
               </div>
             </ng-template>
           </e-tabitem>
-
           <e-tabitem [header]="tabHeaders[1]">
             <ng-template #content>
               <ejs-querybuilder
@@ -47,7 +44,6 @@
           </e-tabitem>
         </e-tabitems>
       </ejs-tab>
-
       <div class="query-builder-page__actions">
         <button
           ejs-button
@@ -63,9 +59,8 @@
           <p class="query-builder-page__error" role="alert">{{ queryError }}</p>
         }
       </div>
-
       <div class="query-builder-page__results">
-        <h3 class="query-builder-page__label">{{ 'queryBuilder.resultsTitle' | translate }}</h3>
+        <h3 class="query-builder-page__results-title">{{ 'queryBuilder.resultsTitle' | translate }}</h3>
         <ejs-grid
           id="query-builder-results-grid"
           #resultsGrid
@@ -119,7 +114,6 @@
         </ejs-grid>
       </div>
     </div>
-
     <p class="query-builder-page__tip">{{ 'queryBuilder.tip' | translate }}</p>
   </section>
 </section>

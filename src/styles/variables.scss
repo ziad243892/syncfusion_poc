@@ -1,7 +1,6 @@
 :root {
   color-scheme: light;
   --app-zoom-factor: 1;
-
   --app-header-height: 4rem;
   --app-footer-height: 3rem;
   --app-sidebar-width: 17.5rem;
@@ -124,21 +123,6 @@ html.app-gray-mode .app-shell {
 
 .panel {
   padding: 1rem;
-}
-
-.query-builder-page {
-  --qb-demo-gap: 1.25rem;
-  --qb-copy-size: 0.875rem;
-  --qb-copy-line-height: 1.5;
-  --qb-container-radius: var(--app-radius);
-  --qb-label-gap: 0.5rem;
-  --qb-section-padding: 1rem;
-  --qb-control-radius: 0.5rem;
-  --qb-textarea-min-height: 6.5rem;
-  --qb-textarea-padding: 0.75rem;
-  --qb-actions-gap: 0.75rem;
-  --qb-error-color: rgb(var(--color-sf-error));
-  --qb-results-grid-height: 320px;
 }
 
 .panel__title {

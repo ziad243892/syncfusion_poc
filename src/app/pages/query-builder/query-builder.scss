@@ -1,77 +1,117 @@
+@use '../../../styles/material3' as m3;
+
 .query-builder-page {
-  &__demo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--app-shell-gap);
+  width: 100%;
+  max-width: var(--app-content-max-width);
+  margin-inline: auto;
+
+  &__header {
     display: flex;
     flex-direction: column;
-    gap: var(--qb-demo-gap);
+    gap: 0.375rem;
+  }
+
+  &__title {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: rgb(m3.$on-surface);
+  }
+
+  &__subtitle {
+    font-size: 0.95rem;
+    color: rgba(m3.$on-surface, 0.72);
+  }
+
+  &__panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 1rem;
+    background: rgb(m3.$surface);
+    border: 1px solid rgb(m3.$outline-variant);
+    border-radius: m3.$card-default-radius;
+    box-shadow: m3.$level1;
   }
 
   &__hint,
   &__tip {
     margin: 0;
-    color: var(--app-text-muted);
-    font-size: var(--qb-copy-size);
-    line-height: var(--qb-copy-line-height);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: rgba(m3.$on-surface, 0.72);
   }
 
   &__container {
-    border: 1px solid var(--app-border);
-    border-radius: var(--qb-container-radius);
     overflow: hidden;
+    border: 1px solid rgb(m3.$outline-variant);
+    border-radius: m3.$card-default-radius;
   }
 
-  &__label {
+  &__label,
+  &__results-title {
     display: block;
-    margin: 0 0 var(--qb-label-gap);
-    font-size: var(--qb-copy-size);
+    margin: 0 0 0.5rem;
+    font-size: 0.875rem;
     font-weight: 600;
+    color: rgb(m3.$on-surface);
   }
 
   &__prompt {
-    padding: var(--qb-section-padding);
+    padding: 1rem;
   }
 
   &__textarea {
-    width: 100%;
-    min-height: var(--qb-textarea-min-height);
-    padding: var(--qb-textarea-padding);
-    border: 1px solid var(--app-border);
-    border-radius: var(--qb-control-radius);
-    resize: vertical;
-    font: inherit;
-    color: var(--app-text);
-    background: var(--app-surface);
     box-sizing: border-box;
+    width: 100%;
+    min-height: 6.5rem;
+    padding: 0.75rem;
+    border: 1px solid rgb(m3.$outline-variant);
+    border-radius: m3.$input-default-radius;
+    font: inherit;
+    color: rgb(m3.$on-surface);
+    background: rgb(m3.$surface);
+    resize: vertical;
+
+    &:focus {
+      outline: none;
+      border-color: rgb(m3.$primary);
+      box-shadow: 0 0 0 1px rgb(m3.$primary);
+    }
   }
 
   &__actions {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: var(--qb-actions-gap);
-    padding: var(--qb-section-padding);
-    border-block-start: 1px solid var(--app-border);
+    gap: 0.75rem;
+    padding: 1rem;
+    border-block-start: 1px solid rgb(m3.$outline-variant);
   }
 
   &__error {
     margin: 0;
-    color: var(--qb-error-color);
-    font-size: var(--qb-copy-size);
+    font-size: 0.875rem;
+    color: rgb(m3.$error);
   }
 
   &__results {
-    padding: var(--qb-section-padding);
-    border-block-start: 1px solid var(--app-border);
+    padding: 1rem;
+    border-block-start: 1px solid rgb(m3.$outline-variant);
   }
 }
 
 :host ::ng-deep .query-builder-page {
   &__container {
     .e-tab .e-content {
-      padding: var(--qb-section-padding);
+      padding: 1rem;
     }
 
     #query-builder-results-grid .e-content {
-      height: var(--qb-results-grid-height) !important;
+      height: 320px !important;
     }
   }
 }
