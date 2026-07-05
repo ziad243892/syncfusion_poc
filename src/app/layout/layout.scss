@@ -46,7 +46,6 @@
 }
 
 .app-sidebar {
-  background: var(--app-surface) !important;
   color: var(--app-text);
   z-index: var(--layout-sidebar-z-index);
 
@@ -164,24 +163,5 @@
     &__subtitle {
       display: none;
     }
-  }
-}
-
-:host ::ng-deep .app-header {
-  &__icon-btn.e-btn {
-    min-width: var(--layout-icon-btn-size);
-    width: var(--layout-icon-btn-size);
-    height: var(--layout-icon-btn-size);
-    padding: 0;
-    border-radius: 50%;
-
-    .material-icons {
-      margin: 0;
-    }
-  }
-
-  &__icon-btn--active.e-btn {
-    background: var(--layout-icon-btn-active-bg);
-    color: var(--app-primary);
   }
 }

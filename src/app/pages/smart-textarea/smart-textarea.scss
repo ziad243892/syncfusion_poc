@@ -59,16 +59,3 @@
     width: 100%;
   }
 }
-:host ::ng-deep .smart-textarea-page {
-  &__editor {
-    ejs-smarttextarea,
-    .e-smart-textarea,
-    .e-input-group.e-control-wrapper,
-    textarea.e-input {
-      display: block;
-      width: 100% !important;
-      max-width: 100%;
-      box-sizing: border-box;
-    }
-  }
-}

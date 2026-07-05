@@ -3,6 +3,7 @@
 @use 'styles/material3';
 @use 'styles/dark-mode';
 @use 'styles/pages';
+@use 'styles/overrides';
 @import '@syncfusion/ej2-base/styles/material3.css';
 @import '@syncfusion/ej2-buttons/styles/material3.css';
 @import '@syncfusion/ej2-inputs/styles/material3.css';
@@ -127,6 +128,6 @@ html.app-gray-mode {
 
 .e-gridcontent {
   .e-content {
-    height: calc(100vh - 396px) !important;
+    height: calc(100vh - 496px) !important;
   }
 }

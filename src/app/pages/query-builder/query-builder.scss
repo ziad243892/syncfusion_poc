@@ -103,15 +103,3 @@
     border-block-start: 1px solid rgb(m3.$outline-variant);
   }
 }
-
-:host ::ng-deep .query-builder-page {
-  &__container {
-    .e-tab .e-content {
-      padding: 1rem;
-    }
-
-    #query-builder-results-grid .e-content {
-      height: 320px !important;
-    }
-  }
-}
