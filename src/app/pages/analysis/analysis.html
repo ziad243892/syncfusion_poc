@@ -1,22 +1,20 @@
-<section class="page analysis-page">
-  <header class="page__header">
-    <h2 class="page__title">{{ 'analysis.title' | translate }}</h2>
-    <p class="page__subtitle">{{ 'analysis.subtitle' | translate }}</p>
+<section class="analysis-page">
+  <header class="analysis-page__header">
+    <h2 class="analysis-page__title">{{ 'analysis.title' | translate }}</h2>
+    <p class="analysis-page__subtitle">{{ 'analysis.subtitle' | translate }}</p>
   </header>
-
-  <div class="card-grid">
+  <div class="analysis-page__stats">
     @for (kpi of kpis; track kpi.labelKey) {
-      <article class="stat-card">
-        <p class="stat-card__label">{{ kpi.labelKey | translate }}</p>
-        <p class="stat-card__value">{{ kpi.value }}</p>
+      <article class="analysis-page__stat-card">
+        <p class="analysis-page__stat-label">{{ kpi.labelKey | translate }}</p>
+        <p class="analysis-page__stat-value">{{ kpi.value }}</p>
         <p class="analysis-page__trend">{{ kpi.trend }}</p>
       </article>
     }
   </div>
-
   <div class="analysis-page__chart-grid">
-    <article class="panel analysis-page__chart-panel">
-      <h3 class="panel__title">{{ 'analysis.charts.line' | translate }}</h3>
+    <article class="analysis-page__chart-panel">
+      <h3 class="analysis-page__chart-title">{{ 'analysis.charts.line' | translate }}</h3>
       <ejs-chart
         id="analysis-line-chart"
         [theme]="chartTheme()"
@@ -47,9 +45,8 @@
         </e-series-collection>
       </ejs-chart>
     </article>
-
-    <article class="panel analysis-page__chart-panel">
-      <h3 class="panel__title">{{ 'analysis.charts.area' | translate }}</h3>
+    <article class="analysis-page__chart-panel">
+      <h3 class="analysis-page__chart-title">{{ 'analysis.charts.area' | translate }}</h3>
       <ejs-chart
         id="analysis-area-chart"
         [theme]="chartTheme()"
@@ -71,9 +68,8 @@
         </e-series-collection>
       </ejs-chart>
     </article>
-
-    <article class="panel analysis-page__chart-panel">
-      <h3 class="panel__title">{{ 'analysis.charts.bar' | translate }}</h3>
+    <article class="analysis-page__chart-panel">
+      <h3 class="analysis-page__chart-title">{{ 'analysis.charts.bar' | translate }}</h3>
       <ejs-chart
         id="analysis-bar-chart"
         [theme]="chartTheme()"
@@ -95,9 +91,8 @@
         </e-series-collection>
       </ejs-chart>
     </article>
-
-    <article class="panel analysis-page__chart-panel">
-      <h3 class="panel__title">{{ 'analysis.charts.stock' | translate }}</h3>
+    <article class="analysis-page__chart-panel">
+      <h3 class="analysis-page__chart-title">{{ 'analysis.charts.stock' | translate }}</h3>
       <ejs-stockchart
         id="analysis-stock-chart"
         [theme]="chartTheme()"
@@ -120,9 +115,8 @@
         </e-stockchart-series-collection>
       </ejs-stockchart>
     </article>
-
-    <article class="panel analysis-page__chart-panel">
-      <h3 class="panel__title">{{ 'analysis.charts.scatterBubble' | translate }}</h3>
+    <article class="analysis-page__chart-panel">
+      <h3 class="analysis-page__chart-title">{{ 'analysis.charts.scatterBubble' | translate }}</h3>
       <ejs-chart
         id="analysis-scatter-chart"
         [theme]="chartTheme()"
@@ -153,9 +147,8 @@
         </e-series-collection>
       </ejs-chart>
     </article>
-
-    <article class="panel analysis-page__chart-panel">
-      <h3 class="panel__title">{{ 'analysis.charts.accumulation' | translate }}</h3>
+    <article class="analysis-page__chart-panel">
+      <h3 class="analysis-page__chart-title">{{ 'analysis.charts.accumulation' | translate }}</h3>
       <ejs-accumulationchart
         id="analysis-pie-chart"
         [theme]="chartTheme()"

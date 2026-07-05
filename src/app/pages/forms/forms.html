@@ -1,7 +1,7 @@
-<section class="page forms-page">
-  <header class="page__header">
-    <h2 class="page__title">{{ 'forms.title' | translate }}</h2>
-    <p class="page__subtitle">{{ 'forms.subtitle' | translate }}</p>
+<section class="forms-page">
+  <header class="forms-page__header">
+    <h2 class="forms-page__title">{{ 'forms.title' | translate }}</h2>
+    <p class="forms-page__subtitle">{{ 'forms.subtitle' | translate }}</p>
   </header>
 
   @if (feedback()) {
@@ -10,8 +10,8 @@
 
   <div class="forms-page__grid">
     <!-- 1. Employee registration -->
-    <article class="panel forms-page__card">
-      <h3 class="panel__title">{{ 'forms.demos.registration.title' | translate }}</h3>
+    <article class="forms-page__card">
+      <h3 class="forms-page__card-title">{{ 'forms.demos.registration.title' | translate }}</h3>
       <p class="forms-page__desc">{{ 'forms.demos.registration.desc' | translate }}</p>
 
       <form class="forms-page__form" (ngSubmit)="saveRegistration()">
@@ -111,8 +111,8 @@
     </article>
 
     <!-- 2. Contact & input types -->
-    <article class="panel forms-page__card">
-      <h3 class="panel__title">{{ 'forms.demos.contact.title' | translate }}</h3>
+    <article class="forms-page__card">
+      <h3 class="forms-page__card-title">{{ 'forms.demos.contact.title' | translate }}</h3>
       <p class="forms-page__desc">{{ 'forms.demos.contact.desc' | translate }}</p>
 
       <form class="forms-page__form" (ngSubmit)="saveContact()">
@@ -185,8 +185,8 @@
     </article>
 
     <!-- 3. Job application -->
-    <article class="panel forms-page__card">
-      <h3 class="panel__title">{{ 'forms.demos.application.title' | translate }}</h3>
+    <article class="forms-page__card">
+      <h3 class="forms-page__card-title">{{ 'forms.demos.application.title' | translate }}</h3>
       <p class="forms-page__desc">{{ 'forms.demos.application.desc' | translate }}</p>
 
       <form class="forms-page__form" (ngSubmit)="saveApplication()">
@@ -256,8 +256,8 @@
     </article>
 
     <!-- 4. Preferences & toggles -->
-    <article class="panel forms-page__card">
-      <h3 class="panel__title">{{ 'forms.demos.preferences.title' | translate }}</h3>
+    <article class="forms-page__card">
+      <h3 class="forms-page__card-title">{{ 'forms.demos.preferences.title' | translate }}</h3>
       <p class="forms-page__desc">{{ 'forms.demos.preferences.desc' | translate }}</p>
 
       <form class="forms-page__form" (ngSubmit)="savePreferences()">
@@ -316,8 +316,8 @@
     </article>
 
     <!-- 5. Survey -->
-    <article class="panel forms-page__card">
-      <h3 class="panel__title">{{ 'forms.demos.survey.title' | translate }}</h3>
+    <article class="forms-page__card">
+      <h3 class="forms-page__card-title">{{ 'forms.demos.survey.title' | translate }}</h3>
       <p class="forms-page__desc">{{ 'forms.demos.survey.desc' | translate }}</p>
 
       <form class="forms-page__form" (ngSubmit)="saveSurvey()">
@@ -371,8 +371,8 @@
     </article>
 
     <!-- 6. Document upload -->
-    <article class="panel forms-page__card">
-      <h3 class="panel__title">{{ 'forms.demos.document.title' | translate }}</h3>
+    <article class="forms-page__card">
+      <h3 class="forms-page__card-title">{{ 'forms.demos.document.title' | translate }}</h3>
       <p class="forms-page__desc">{{ 'forms.demos.document.desc' | translate }}</p>
 
       <form class="forms-page__form" (ngSubmit)="saveDocument()">
@@ -421,8 +421,8 @@
     </article>
 
     <!-- 7. Security / OTP -->
-    <article class="panel forms-page__card">
-      <h3 class="panel__title">{{ 'forms.demos.security.title' | translate }}</h3>
+    <article class="forms-page__card">
+      <h3 class="forms-page__card-title">{{ 'forms.demos.security.title' | translate }}</h3>
       <p class="forms-page__desc">{{ 'forms.demos.security.desc' | translate }}</p>
 
       <form class="forms-page__form" (ngSubmit)="verifyOtp()">
