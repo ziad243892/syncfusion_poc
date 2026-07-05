@@ -177,12 +177,23 @@
   }
 
   &__avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     flex-shrink: 0;
     width: 1.75rem;
     height: 1.75rem;
     border-radius: 50%;
-    object-fit: cover;
-    background: rgb(m3.$surface);
+    font-size: 1rem;
+    color: rgb(m3.$on-primary);
+
+    &--male {
+      background-color: rgb(m3.$primary);
+    }
+
+    &--female {
+      background-color: rgb(m3.$tertiary);
+    }
   }
 
   &__assignee-name {
@@ -191,11 +202,27 @@
     white-space: nowrap;
   }
 
-  &__location-icon,
-  &__resource-icon,
+  &__cell-icon {
+    flex-shrink: 0;
+    font-size: 1.125rem;
+    color: rgb(m3.$primary);
+  }
+
   &__trust-icon {
     flex-shrink: 0;
-    object-fit: contain;
+    font-size: 1.25rem;
+
+    &--perfect {
+      color: rgb(m3.$success);
+    }
+
+    &--sufficient {
+      color: rgb(m3.$warning);
+    }
+
+    &--insufficient {
+      color: rgb(m3.$error);
+    }
   }
 
   &__progress {

@@ -41,15 +41,17 @@ import { ThemeService } from '../../core/theme/theme.service';
 
 import {
 
-  assigneeImage,
+  AssigneeImg,
 
   getTreeDataForDepth,
 
   localizeTaskNames,
 
+  ResourceTypeKey,
+
   TaskStatusKey,
 
-  TREE_MAP_IMAGE,
+  TrustKey,
 
   TreeDepthLevel,
 
@@ -260,7 +262,6 @@ export class TreegridPage implements OnInit, OnDestroy {
 
   protected readonly ratingStars = [1, 2, 3, 4, 5] as const;
 
-  protected readonly mapImage = TREE_MAP_IMAGE;
   protected readonly gridRowHeight = 44;
   protected readonly columnMinWidth = COLUMN_CELL_MIN_PX;
   protected readonly taskNameMinWidth = TASK_NAME_MIN_PX;
@@ -402,13 +403,28 @@ export class TreegridPage implements OnInit, OnDestroy {
 
 
 
-  protected assigneeSrc(task: TreeTask): string {
-
-    return assigneeImage(task.assigneeImg ?? 'usermale');
-
+  protected assigneeIcon(type?: AssigneeImg): string {
+    return (type ?? 'usermale') === 'usermale' ? 'person' : 'face';
   }
 
+  protected resourceIcon(key?: ResourceTypeKey): string {
+    const icons: Record<ResourceTypeKey, string> = {
+      design: 'palette',
+      development: 'code',
+      qa: 'fact_check',
+      management: 'groups',
+    };
+    return icons[key ?? 'development'];
+  }
 
+  protected trustIcon(key?: TrustKey): string {
+    const icons: Record<TrustKey, string> = {
+      perfect: 'verified',
+      sufficient: 'check_circle',
+      insufficient: 'warning',
+    };
+    return icons[key ?? 'sufficient'];
+  }
 
   protected statusLabel(statusKey?: TaskStatusKey): string {
 
